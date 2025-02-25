@@ -134,7 +134,6 @@ public abstract interface class eu/kanade/tachiyomi/animesource/AnimeCatalogueSo
 	public abstract fun getDefaultAnimeList (ILkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getFilterList ()Leu/kanade/tachiyomi/animesource/model/AnimeFilterList;
 	public abstract fun getHasLatestListing ()Z
-	public abstract fun getHasSearchFilters ()Z
 	public abstract fun getLang ()Ljava/lang/String;
 	public abstract fun getLanguage ()Ljava/lang/String;
 	public abstract fun getLatestAnimeList (ILkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -151,7 +150,6 @@ public final class eu/kanade/tachiyomi/animesource/AnimeCatalogueSource$DefaultI
 	public static fun getDefaultAnimeList (Leu/kanade/tachiyomi/animesource/AnimeCatalogueSource;ILkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static fun getFilterList (Leu/kanade/tachiyomi/animesource/AnimeCatalogueSource;)Leu/kanade/tachiyomi/animesource/model/AnimeFilterList;
 	public static fun getHasLatestListing (Leu/kanade/tachiyomi/animesource/AnimeCatalogueSource;)Z
-	public static fun getHasSearchFilters (Leu/kanade/tachiyomi/animesource/AnimeCatalogueSource;)Z
 	public static fun getHosterList (Leu/kanade/tachiyomi/animesource/AnimeCatalogueSource;Leu/kanade/tachiyomi/animesource/model/SEpisode;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static fun getLang (Leu/kanade/tachiyomi/animesource/AnimeCatalogueSource;)Ljava/lang/String;
 	public static fun getLanguage (Leu/kanade/tachiyomi/animesource/AnimeCatalogueSource;)Ljava/lang/String;
@@ -171,7 +169,6 @@ public abstract interface class eu/kanade/tachiyomi/animesource/AnimeSource {
 	public abstract fun getDefaultAnimeList (ILkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getEpisodeList (Leu/kanade/tachiyomi/animesource/model/SAnime;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getHasLatestListing ()Z
-	public abstract fun getHasSearchFilters ()Z
 	public abstract fun getHosterList (Leu/kanade/tachiyomi/animesource/model/SEpisode;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getId ()J
 	public abstract fun getLanguage ()Ljava/lang/String;
@@ -494,7 +491,6 @@ public abstract class eu/kanade/tachiyomi/animesource/online/AnimeHttpSource : e
 	public fun getEpisodeUrl (Leu/kanade/tachiyomi/animesource/model/SEpisode;)Ljava/lang/String;
 	public fun getFilterList ()Leu/kanade/tachiyomi/animesource/model/AnimeFilterList;
 	public fun getHasLatestListing ()Z
-	public fun getHasSearchFilters ()Z
 	public final fun getHeaders ()Lokhttp3/Headers;
 	public fun getHosterList (Leu/kanade/tachiyomi/animesource/model/SEpisode;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getId ()J
