@@ -502,7 +502,6 @@ public abstract class eu/kanade/tachiyomi/animesource/online/AnimeHttpSource : e
 	public fun getLanguage ()Ljava/lang/String;
 	public fun getLatestAnimeList (ILkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getLatestUpdates (ILkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	protected final fun getNetwork ()Leu/kanade/tachiyomi/network/NetworkHelper;
 	public fun getPopularAnime (ILkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getSearchAnime (ILjava/lang/String;Leu/kanade/tachiyomi/animesource/model/AnimeFilterList;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getSearchFilters (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;

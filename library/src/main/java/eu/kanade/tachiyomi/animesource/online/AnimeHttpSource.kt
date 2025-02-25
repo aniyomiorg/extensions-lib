@@ -41,11 +41,6 @@ abstract class AnimeHttpSource : AnimeCatalogueSource {
     override val id: Long = throw RuntimeException("Stub!")
 
     /**
-     * Network service.
-     */
-    protected val network: NetworkHelper = throw RuntimeException("Stub!")
-
-    /**
      * Headers used for requests.
      */
     val headers: Headers = throw RuntimeException("Stub!")
