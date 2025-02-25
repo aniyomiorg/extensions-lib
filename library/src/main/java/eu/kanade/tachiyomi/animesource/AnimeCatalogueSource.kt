@@ -16,8 +16,6 @@ interface AnimeCatalogueSource : AnimeSource {
 
     override val language: String get() = throw RuntimeException("Stub!")
 
-    override val hasSearchFilters: Boolean get() = throw RuntimeException("Stub!")
-
     override val hasLatestListing: Boolean get() = throw RuntimeException("Stub!")
 
     override suspend fun getSearchFilters(): AnimeFilterList = throw RuntimeException("Stub!")
@@ -28,7 +26,7 @@ interface AnimeCatalogueSource : AnimeSource {
 
     override suspend fun getAnimeList(
         query: String,
-        filters: AnimeFilterList,
+        filters: AnimeFilterList?,
         page: Int
     ): AnimesPage = throw RuntimeException("Stub!")
 

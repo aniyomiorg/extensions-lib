@@ -73,7 +73,7 @@ abstract class AnimeHttpSource : AnimeCatalogueSource {
 
     override suspend fun getAnimeList(
         query: String,
-        filters: AnimeFilterList,
+        filters: AnimeFilterList?,
         page: Int
     ): AnimesPage = throw RuntimeException("Stub!")
 

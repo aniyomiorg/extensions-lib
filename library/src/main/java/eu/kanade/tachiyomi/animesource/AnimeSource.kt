@@ -38,13 +38,6 @@ interface AnimeSource {
     val language: String
 
     /**
-     * Indicates if the source supports search filters
-     *
-     * @since extensions-lib 16
-     */
-    val hasSearchFilters: Boolean
-
-    /**
      * Whether the source has a list for latest updates
      *
      * @since extensions-lib 16
@@ -85,7 +78,7 @@ interface AnimeSource {
      * @param filters   the list of filters to apply.
      * @param page      the page number to retrieve.
      */
-    suspend fun getAnimeList(query: String, filters: AnimeFilterList, page: Int): AnimesPage
+    suspend fun getAnimeList(query: String, filters: AnimeFilterList?, page: Int): AnimesPage
 
     /**
      * Get the updated details for an aime and its episodes
