@@ -398,13 +398,19 @@ public abstract interface class eu/kanade/tachiyomi/animesource/model/SEpisode {
 	public static final field Companion Leu/kanade/tachiyomi/animesource/model/SEpisode$Companion;
 	public abstract fun getDate_upload ()J
 	public abstract fun getEpisode_number ()F
+	public abstract fun getFillermark ()Z
 	public abstract fun getName ()Ljava/lang/String;
+	public abstract fun getPreview_url ()Ljava/lang/String;
 	public abstract fun getScanlator ()Ljava/lang/String;
+	public abstract fun getSummary ()Ljava/lang/String;
 	public abstract fun getUrl ()Ljava/lang/String;
 	public abstract fun setDate_upload (J)V
 	public abstract fun setEpisode_number (F)V
+	public abstract fun setFillermark (Z)V
 	public abstract fun setName (Ljava/lang/String;)V
+	public abstract fun setPreview_url (Ljava/lang/String;)V
 	public abstract fun setScanlator (Ljava/lang/String;)V
+	public abstract fun setSummary (Ljava/lang/String;)V
 	public abstract fun setUrl (Ljava/lang/String;)V
 }
 
