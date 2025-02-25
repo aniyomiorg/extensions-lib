@@ -67,26 +67,6 @@ abstract class AnimeHttpSource : AnimeCatalogueSource {
          throw RuntimeException("Stub!")
      }
 
-    override suspend fun getDefaultAnimeList(page: Int): AnimesPage = throw RuntimeException("Stub!")
-
-    override suspend fun getLatestAnimeList(page: Int): AnimesPage = throw RuntimeException("Stub!")
-
-    override suspend fun getAnimeList(
-        query: String,
-        filters: AnimeFilterList?,
-        page: Int
-    ): AnimesPage = throw RuntimeException("Stub!")
-
-    override suspend fun getAnimeDetails(
-        anime: SAnime,
-        updateAnime: Boolean,
-        fetchEpisodes: Boolean
-    ): Pair<SAnime, List<SEpisode>> = throw RuntimeException("Stub!")
-
-    override suspend fun getHosterList(episode: SEpisode): List<Hoster> = throw RuntimeException("Stub!")
-
-    override suspend fun getVideoList(hoster: Hoster): List<Video> = throw RuntimeException("Stub!")
-
     /**
      * Returns the resolved video of the episode link. Override only if it's needed to resolve
      * the video.
