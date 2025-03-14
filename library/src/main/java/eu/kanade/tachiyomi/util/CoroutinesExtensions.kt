@@ -74,7 +74,7 @@ inline fun <A, B> Iterable<A>.parallelFlatMapBlocking(crossinline f: suspend (A)
  *
  * @since extensions-lib 14
  */
-@Deprecated("Use non-catching variant instead")
+@Deprecated("Use aniyomix variant instead")
 suspend inline fun <A, B> Iterable<A>.parallelCatchingFlatMap(crossinline f: suspend (A) -> Iterable<B>): List<B> =
     withContext(Dispatchers.IO) {
         map {
@@ -93,6 +93,6 @@ suspend inline fun <A, B> Iterable<A>.parallelCatchingFlatMap(crossinline f: sus
  *
  * @since extensions-lib 14
  */
-@Deprecated("Use non-blocking and non-catching variant instead")
+@Deprecated("Use non-blocking variant instead")
 inline fun <A, B> Iterable<A>.parallelCatchingFlatMapBlocking(crossinline f: suspend (A) -> Iterable<B>): List<B> =
     runBlocking { parallelCatchingFlatMap(f) }
