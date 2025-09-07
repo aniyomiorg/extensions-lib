@@ -30,6 +30,10 @@ interface SAnime {
      */
     var update_strategy: AnimeUpdateStrategy
 
+    var fetch_type: FetchType
+
+    var season_number: Double
+
     /**
      * Tells the app if it should call [fetchAnimeDetails].
      */

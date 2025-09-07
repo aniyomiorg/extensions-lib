@@ -1,4 +1,9 @@
-@file:Suppress("unused_parameter")
+@file:Suppress(
+    "unused_parameter",
+    "RedundantSuspendModifier",
+    "UnusedReceiverParameter",
+    "FunctionName",
+)
 
 package eu.kanade.tachiyomi.network
 
@@ -53,7 +58,7 @@ suspend fun OkHttpClient.get(
     headers: Headers = DEFAULT_HEADERS,
     cache: CacheControl = DEFAULT_CACHE_CONTROL,
 ): Response {
-    return newCall(GET(url, headers, cache)).awaitSuccess()
+    throw Exception("Stub!")
 }
 
 /**
@@ -70,7 +75,7 @@ suspend fun OkHttpClient.get(
     headers: Headers = DEFAULT_HEADERS,
     cache: CacheControl = DEFAULT_CACHE_CONTROL,
 ): Response {
-    return newCall(GET(url, headers, cache)).awaitSuccess()
+    throw Exception("Stub!")
 }
 
 /**
@@ -89,5 +94,5 @@ suspend fun OkHttpClient.post(
     body: RequestBody = DEFAULT_BODY,
     cache: CacheControl = DEFAULT_CACHE_CONTROL,
 ): Response {
-    return newCall(POST(url, headers, body, cache)).awaitSuccess()
+    throw Exception("Stub!")
 }

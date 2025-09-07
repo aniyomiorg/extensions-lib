@@ -47,9 +47,10 @@ data class TimeStamp(
  * @param ffmpegStreamArgs Extra arguments passed to the video stream when downloading.
  * @param ffmpegVideoArgs Extra arguments passed to ffmpeg when downloading.
  * @param internalData Internal data used by resolveVideo.
+ * @param initialized Whether to call resolveVideo.
  */
 @Suppress("unused_parameter")
-class Video(
+data class Video(
     val videoUrl: String = "",
     val videoTitle: String = "",
     val resolution: Int? = null,
@@ -63,6 +64,7 @@ class Video(
     val ffmpegStreamArgs: List<Pair<String, String>> = emptyList(),
     val ffmpegVideoArgs: List<Pair<String, String>> = emptyList(),
     val internalData: String = "",
+    val initialized: Boolean = false,
 ) {
     @Deprecated(
         message = "Use the new Video constructor",

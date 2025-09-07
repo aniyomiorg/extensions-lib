@@ -39,6 +39,15 @@ interface AnimeSource {
     suspend fun getEpisodeList(anime: SAnime): List<SEpisode>
 
     /**
+     * Get all the available seasons for an anime
+     *
+     * @since extensions-lib 16
+     * @param anime the anime to fetch seasons for.
+     * @return the anime list for the anime.
+     */
+    suspend fun getSeasonList(anime: SAnime): List<SAnime>
+
+    /**
      * Get the list of hoster for an episode.
      *
      * @since extensions-lib 16
