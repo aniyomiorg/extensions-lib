@@ -24,6 +24,8 @@ interface SAnime {
 
     var thumbnail_url: String?
 
+    var background_url: String?
+
     /**
      * Useful to exclude animes/movies that will always only have the same episode list
      * from the global updates.

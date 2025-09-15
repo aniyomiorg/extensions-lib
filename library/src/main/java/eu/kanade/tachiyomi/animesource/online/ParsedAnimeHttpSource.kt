@@ -138,4 +138,29 @@ abstract class ParsedAnimeHttpSource : AnimeHttpSource() {
      * @param element an element obtained from [episodeListSelector].
      */
     protected abstract fun episodeFromElement(element: Element): SEpisode
+
+    /**
+     * Parses the response from the site and returns a list of seasons.
+     *
+     * @since extensions-lib 16
+     * @param response the response from the site.
+     */
+    override fun seasonListParse(response: Response): List<SAnime> {
+        throw Exception("Stub!")
+    }
+
+    /**
+     * Returns the Jsoup selector that returns a list of [Element] corresponding to each season.
+     *
+     * @since extensions-lib 16
+     */
+    protected abstract fun seasonListSelector(): String
+
+    /**
+     * Returns a season from the given element.
+     *
+     * @since extensions-lib 16
+     * @param element an element obtained from [seasonListSelector].
+     */
+    protected abstract fun seasonFromElement(element: Element): SAnime
 }
