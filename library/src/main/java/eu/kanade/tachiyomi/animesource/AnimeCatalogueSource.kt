@@ -2,6 +2,12 @@ package eu.kanade.tachiyomi.animesource
 
 import eu.kanade.tachiyomi.animesource.model.AnimeFilterList
 import eu.kanade.tachiyomi.animesource.model.AnimesPage
+import eu.kanade.tachiyomi.animesource.model.Hoster
+import eu.kanade.tachiyomi.animesource.model.SAnime
+import eu.kanade.tachiyomi.animesource.model.SAnimeEpisodeUpdate
+import eu.kanade.tachiyomi.animesource.model.SAnimeSeasonUpdate
+import eu.kanade.tachiyomi.animesource.model.SEpisode
+import eu.kanade.tachiyomi.animesource.model.Video
 
 interface AnimeCatalogueSource : AnimeSource {
 
@@ -10,45 +16,41 @@ interface AnimeCatalogueSource : AnimeSource {
      */
     val lang: String
 
-    /**
-     * Whether the source has support for latest updates.
-     */
-    val supportsLatest: Boolean
-
-    /**
-     * Get a page with a list of anime.
-     *
-     * @since extensions-lib 14
-     * @param page the page number to retrieve.
-     */
-    suspend fun getPopularAnime(page: Int): AnimesPage {
+    override suspend fun getPopularAnime(page: Int): AnimesPage {
        throw Exception("Stub!") 
     }
 
-    /**
-     * Get a page with a list of anime.
-     *
-     * @since extensions-lib 14
-     * @param page the page number to retrieve.
-     * @param query the search query.
-     * @param filters the list of filters to apply.
-     */
-    suspend fun getSearchAnime(page: Int, query: String, filters: AnimeFilterList): AnimesPage {
+    override suspend fun getLatestUpdates(page: Int): AnimesPage {
         throw Exception("Stub!")
     }
 
-    /**
-     * Get a page with a list of latest anime updates.
-     *
-     * @since extensions-lib 14
-     * @param page the page number to retrieve.
-     */
-    suspend fun getLatestUpdates(page: Int): AnimesPage {
+    override suspend fun getSearchAnime(page: Int, query: String, filters: AnimeFilterList): AnimesPage {
         throw Exception("Stub!")
     }
 
-    /**
-     * Returns the list of filters for the source.
-     */
-    fun getFilterList(): AnimeFilterList
+    override suspend fun getAnimeEpisodeUpdate(
+        anime: SAnime,
+        episodes: List<SEpisode>,
+        fetchDetails: Boolean,
+        fetchEpisodes: Boolean
+    ): SAnimeEpisodeUpdate {
+       throw Exception("Stub!")
+    }
+
+    override suspend fun getAnimeSeasonUpdate(
+        anime: SAnime,
+        seasons: List<SAnime>,
+        fetchDetails: Boolean,
+        fetchSeasons: Boolean
+    ): SAnimeSeasonUpdate {
+        throw Exception("Stub!")
+    }
+
+    override suspend fun getHosterList(episode: SEpisode): List<Hoster> {
+        throw Exception("Stub!")
+    }
+
+    override suspend fun getVideoList(hoster: Hoster): List<Video> {
+        throw Exception("Stub!")
+    }
 }

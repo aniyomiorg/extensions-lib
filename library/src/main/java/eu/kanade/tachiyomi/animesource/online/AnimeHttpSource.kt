@@ -26,6 +26,19 @@ abstract class AnimeHttpSource : AnimeCatalogueSource {
     abstract val baseUrl: String
 
     /**
+     * Returns the base (home) URL of the website as a string.
+     *
+     * This is typically the root address that serves as the main entry point
+     * to the site's content, such as "https://aniyomi.org".
+     *
+     * This method is used in the browse screen to determine the URL
+     * opened when tapping "Open in WebView".
+     *
+     * @return The website’s home page URL. Defaults to [baseUrl].
+     */
+    open fun getHomeUrl(): String = throw Exception("Stub!")
+
+    /**
      * Version id used to generate the source id. If the site completely changes and urls are
      * incompatible, you may increase this value and it'll be considered as a new source.
      */
@@ -82,9 +95,7 @@ abstract class AnimeHttpSource : AnimeCatalogueSource {
      * @param versionId [Int] the version ID of the source
      * @return a unique ID for the source
      */
-    protected fun generateId(name: String, lang: String, versionId: Int): Long {
-        throw Exception("Stub!")
-    }
+    protected fun generateId(name: String, lang: String, versionId: Int): Long = throw Exception("Stub!")
 
     /**
      * Headers builder for requests. Implementations can override this method for custom headers.
@@ -100,30 +111,34 @@ abstract class AnimeHttpSource : AnimeCatalogueSource {
      * override fun headersBuilder() = Headers.Builder().add("Referer", baseUrl)
      * ```
      */
-    protected open fun headersBuilder(): Headers.Builder {
-        throw Exception("Stub!")
-    }
+    protected open fun headersBuilder(): Headers.Builder = throw Exception("Stub!")
 
     /**
      * Visible name of the source.
      */
-    override fun toString(): String {
-        throw Exception("Stub!")
-    }
+    override fun toString(): String = throw Exception("Stub!")
 
     /**
      * Returns the request for the popular anime given the page.
      *
      * @param page the page number to retrieve.
      */
-    protected abstract fun popularAnimeRequest(page: Int): Request
+    @Deprecated(
+        message = "The helper functions are inherently limiting and hides the underlying implementation. " +
+                "Source developers should make their own implementation according to their needs.",
+    )
+    protected open fun popularAnimeRequest(page: Int): Request = throw Exception("Stub!")
 
     /**
      * Parses the response from the site and returns a [AnimesPage] object.
      *
      * @param response the response from the site.
      */
-    protected abstract fun popularAnimeParse(response: Response): AnimesPage
+    @Deprecated(
+        message = "The helper functions are inherently limiting and hides the underlying implementation. " +
+                "Source developers should make their own implementation according to their needs.",
+    )
+    protected open fun popularAnimeParse(response: Response): AnimesPage = throw Exception("Stub!")
 
     /**
      * Returns the request for the search anime given the page and filters.
@@ -132,28 +147,45 @@ abstract class AnimeHttpSource : AnimeCatalogueSource {
      * @param query the search query.
      * @param filters the list of filters to apply.
      */
-    protected abstract fun searchAnimeRequest(page: Int, query: String, filters: AnimeFilterList): Request
+    @Deprecated(
+        message = "The helper functions are inherently limiting and hides the underlying implementation. " +
+                "Source developers should make their own implementation according to their needs.",
+    )
+    protected open fun searchAnimeRequest(page: Int, query: String, filters: AnimeFilterList): Request =
+        throw Exception("Stub!")
 
     /**
      * Parses the response from the site and returns a [AnimesPage] object.
      *
      * @param response the response from the site.
      */
-    protected abstract fun searchAnimeParse(response: Response): AnimesPage
+    @Deprecated(
+        message = "The helper functions are inherently limiting and hides the underlying implementation. " +
+                "Source developers should make their own implementation according to their needs.",
+    )
+    protected open fun searchAnimeParse(response: Response): AnimesPage = throw Exception("Stub!")
 
     /**
      * Returns the request for latest anime given the page.
      *
      * @param page the page number to retrieve.
      */
-    protected abstract fun latestUpdatesRequest(page: Int): Request
+    @Deprecated(
+        message = "The helper functions are inherently limiting and hides the underlying implementation. " +
+                "Source developers should make their own implementation according to their needs.",
+    )
+    protected open fun latestUpdatesRequest(page: Int): Request = throw Exception("Stub!")
 
     /**
      * Parses the response from the site and returns a [AnimesPage] object.
      *
      * @param response the response from the site.
      */
-    protected abstract fun latestUpdatesParse(response: Response): AnimesPage
+    @Deprecated(
+        message = "The helper functions are inherently limiting and hides the underlying implementation. " +
+                "Source developers should make their own implementation according to their needs.",
+    )
+    protected open fun latestUpdatesParse(response: Response): AnimesPage = throw Exception("Stub!")
 
     /**
      * Get the updated details for an anime.
@@ -162,9 +194,11 @@ abstract class AnimeHttpSource : AnimeCatalogueSource {
      * @param anime the anime to be updated.
      * @return the updated anime.
      */
-    override suspend fun getAnimeDetails(anime: SAnime): SAnime {
-        throw Exception("Stub!")
-    }
+    @Deprecated(
+        "Use the combined suspend API instead",
+        replaceWith = ReplaceWith("getAnimeEpisodeUpdate")
+    )
+    override suspend fun getAnimeDetails(anime: SAnime): SAnime = throw Exception("Stub!")
 
     /**
      * Returns the request for the details of an anime. Override only if it's needed to change the
@@ -172,16 +206,22 @@ abstract class AnimeHttpSource : AnimeCatalogueSource {
      *
      * @param anime the anime to be updated.
      */
-    open fun animeDetailsRequest(anime: SAnime): Request {
-        throw Exception("Stub!")
-    }
+    @Deprecated(
+        message = "The helper functions are inherently limiting and hides the underlying implementation. " +
+                "Source developers should make their own implementation according to their needs.",
+    )
+    open fun animeDetailsRequest(anime: SAnime): Request = throw Exception("Stub!")
 
     /**
      * Parses the response from the site and returns the details of an anime.
      *
      * @param response the response from the site.
      */
-    protected abstract fun animeDetailsParse(response: Response): SAnime
+    @Deprecated(
+        message = "The helper functions are inherently limiting and hides the underlying implementation. " +
+                "Source developers should make their own implementation according to their needs.",
+    )
+    protected open fun animeDetailsParse(response: Response): SAnime = throw Exception("Stub!")
 
     /**
      * Get all the available episodes for an anime.
@@ -191,9 +231,11 @@ abstract class AnimeHttpSource : AnimeCatalogueSource {
      * @return the episodes for the anime.
      * @throws LicensedEntryItemsException if an anime is licensed and therefore no episodes are available.
      */
-    override suspend fun getEpisodeList(anime: SAnime): List<SEpisode> {
-        throw Exception("Stub!")
-    }
+    @Deprecated(
+        "Use the combined suspend API instead",
+        replaceWith = ReplaceWith("getAnimeEpisodeUpdate")
+    )
+    override suspend fun getEpisodeList(anime: SAnime): List<SEpisode> = throw Exception("Stub!")
 
     /**
      * Returns the request for updating the episode list. Override only if it's needed to override
@@ -201,16 +243,22 @@ abstract class AnimeHttpSource : AnimeCatalogueSource {
      *
      * @param anime the anime to look for episodes.
      */
-    protected open fun episodeListRequest(anime: SAnime): Request {
-        throw Exception("Stub!")
-    }
+    @Deprecated(
+        message = "The helper functions are inherently limiting and hides the underlying implementation. " +
+                "Source developers should make their own implementation according to their needs.",
+    )
+    protected open fun episodeListRequest(anime: SAnime): Request = throw Exception("Stub!")
 
     /**
      * Parses the response from the site and returns a list of episodes.
      *
      * @param response the response from the site.
      */
-    protected abstract fun episodeListParse(response: Response): List<SEpisode>
+    @Deprecated(
+        message = "The helper functions are inherently limiting and hides the underlying implementation. " +
+                "Source developers should make their own implementation according to their needs.",
+    )
+    protected open fun episodeListParse(response: Response): List<SEpisode> = throw Exception("Stub!")
 
     /**
      * Get all the available seasons for an anime.
@@ -220,9 +268,11 @@ abstract class AnimeHttpSource : AnimeCatalogueSource {
      * @param anime the anime to look for seasons.
      * @return the seasons for the anime.
      */
-    override suspend fun getSeasonList(anime: SAnime): List<SAnime> {
-        throw Exception("Stub!")
-    }
+    @Deprecated(
+        "Use the combined suspend API instead",
+        replaceWith = ReplaceWith("getAnimeSeasonUpdate")
+    )
+    override suspend fun getSeasonList(anime: SAnime): List<SAnime> = throw Exception("Stub!")
 
     /**
      * Returns the request for updating the season list. Override only if it's needed to override
@@ -232,9 +282,11 @@ abstract class AnimeHttpSource : AnimeCatalogueSource {
      * @param anime the anime to look for seasons.
      * @return the request for getting the seasons.
      */
-    protected open fun seasonListRequest(anime: SAnime): Request {
-        throw Exception("Stub!")
-    }
+    @Deprecated(
+        message = "The helper functions are inherently limiting and hides the underlying implementation. " +
+                "Source developers should make their own implementation according to their needs.",
+    )
+    protected open fun seasonListRequest(anime: SAnime): Request = throw Exception("Stub!")
 
     /**
      * Parses the response from the site and returns a list of episodes.
@@ -243,18 +295,11 @@ abstract class AnimeHttpSource : AnimeCatalogueSource {
      * @param response the response from the site.
      * @return the list of seasons.
      */
-    protected abstract fun seasonListParse(response: Response): List<SAnime>
-
-    /**
-     * Get the list of hoster for an episode.
-     *
-     * @since extensions-lib 16
-     * @param episode the episode.
-     * @return the hosters for the episode.
-     */
-    override suspend fun getHosterList(episode: SEpisode): List<Hoster> {
-        throw Exception("Stub!")
-    }
+    @Deprecated(
+        message = "The helper functions are inherently limiting and hides the underlying implementation. " +
+                "Source developers should make their own implementation according to their needs.",
+    )
+    protected open fun seasonListParse(response: Response): List<SAnime> = throw Exception("Stub!")
 
     /**
      * Returns the request for getting the hosters. Override only if it's needed to override
@@ -264,9 +309,11 @@ abstract class AnimeHttpSource : AnimeCatalogueSource {
      * @param episode the episode to look for hosters.
      * @return the request for getting the hosters.
      */
-    protected open fun hosterListRequest(episode: SEpisode): Request {
-        throw Exception("Stub!")
-    }
+    @Deprecated(
+        message = "The helper functions are inherently limiting and hides the underlying implementation. " +
+                "Source developers should make their own implementation according to their needs.",
+    )
+    protected open fun hosterListRequest(episode: SEpisode): Request = throw Exception("Stub!")
 
     /**
      * Parses the response from the site and returns a list of hosters.
@@ -275,18 +322,11 @@ abstract class AnimeHttpSource : AnimeCatalogueSource {
      * @param response the response from the site.
      * @return the list of hosters.
      */
-    protected abstract fun hosterListParse(response: Response): List<Hoster>
-
-    /**
-     * Get the list of videos for a hoster.
-     *
-     * @since extensions-lib 16
-     * @param hoster the hoster.
-     * @return the videos for the hoster.
-     */
-    override suspend fun getVideoList(hoster: Hoster): List<Video> {
-        throw Exception("Stub!")
-    }
+    @Deprecated(
+        message = "The helper functions are inherently limiting and hides the underlying implementation. " +
+                "Source developers should make their own implementation according to their needs.",
+    )
+    protected open fun hosterListParse(response: Response): List<Hoster> = throw Exception("Stub!")
 
     /**
      * Returns the request for getting the hosters. Override only if it's needed to override
@@ -296,9 +336,11 @@ abstract class AnimeHttpSource : AnimeCatalogueSource {
      * @param hoster the hoster to look for videos.
      * @return the request for getting the videos.
      */
-    protected open fun videoListRequest(hoster: Hoster): Request {
-        throw Exception("Stub!")
-    }
+    @Deprecated(
+        message = "The helper functions are inherently limiting and hides the underlying implementation. " +
+                "Source developers should make their own implementation according to their needs.",
+    )
+    protected open fun videoListRequest(hoster: Hoster): Request = throw Exception("Stub!")
 
     /**
      * Parses the response from the hoster and returns a list of videos.
@@ -308,9 +350,11 @@ abstract class AnimeHttpSource : AnimeCatalogueSource {
      * @param hoster the hoster.
      * @return the list of videos.
      */
-    protected open fun videoListParse(response: Response, hoster: Hoster): List<Video> {
-        throw Exception("Stub!")
-    }
+    @Deprecated(
+        message = "The helper functions are inherently limiting and hides the underlying implementation. " +
+                "Source developers should make their own implementation according to their needs.",
+    )
+    protected open fun videoListParse(response: Response, hoster: Hoster): List<Video> = throw Exception("Stub!")
 
     /**
      * Returns the resolved video of the episode link. Override only if it's needed to resolve
@@ -320,9 +364,7 @@ abstract class AnimeHttpSource : AnimeCatalogueSource {
      * @param video the video information.
      * @return the resolved video, or null on known failure
      */
-    open suspend fun resolveVideo(video: Video): Video? {
-        throw Exception("Stub!")
-    }
+    open suspend fun resolveVideo(video: Video): Video? = throw Exception("Stub!")
 
     /**
      * Sorts the hoster list. Override this according to the user's preference.
@@ -362,14 +404,10 @@ abstract class AnimeHttpSource : AnimeCatalogueSource {
      * }
      * ```
      */
-    protected open fun List<Video>.sortVideos(): List<Video> {
-        throw Exception("Stub!")
-    }
+    protected open fun List<Video>.sortVideos(): List<Video> = throw Exception("Stub!")
 
     @Deprecated("Use resolveVideo instead")
-    open suspend fun getVideoUrl(video: Video): String {
-        throw Exception("Stub!")
-    }
+    open suspend fun getVideoUrl(video: Video): String = throw Exception("Stub!")
 
     /**
      * Returns the request for getting the url to the source video. Override only if it's needed to
@@ -378,14 +416,10 @@ abstract class AnimeHttpSource : AnimeCatalogueSource {
      * @param video the video whose its links have to be fetched.
      */
     @Deprecated("Use resolveVideo instead")
-    protected open fun videoUrlRequest(video: Video): Request {
-        throw Exception("Stub!")
-    }
+    protected open fun videoUrlRequest(video: Video): Request = throw Exception("Stub!")
 
     @Deprecated("Use resolveVideo instead")
-    protected open fun videoUrlParse(response: Response): String {
-        throw Exception("Stub!")
-    }
+    protected open fun videoUrlParse(response: Response): String = throw Exception("Stub!")
 
     /**
      * Assigns the url of the episode without the scheme and domain. It saves some redundancy from
@@ -393,9 +427,7 @@ abstract class AnimeHttpSource : AnimeCatalogueSource {
      *
      * @param url the full url to the episode.
      */
-    fun SEpisode.setUrlWithoutDomain(url: String) {
-        throw Exception("Stub!")
-    }
+    fun SEpisode.setUrlWithoutDomain(url: String): Unit = throw Exception("Stub!")
 
     /**
      * Assigns the url of the anime without the scheme and domain. It saves some redundancy from
@@ -403,18 +435,14 @@ abstract class AnimeHttpSource : AnimeCatalogueSource {
      *
      * @param url the full url to the anime.
      */
-    fun SAnime.setUrlWithoutDomain(url: String) {
-        throw Exception("Stub!")
-    }
+    fun SAnime.setUrlWithoutDomain(url: String): Unit = throw Exception("Stub!")
 
     /**
      * Returns the url of the given string without the scheme and domain.
      *
      * @param orig the full url.
      */
-    private fun getUrlWithoutDomain(orig: String): String {
-        throw Exception("Stub!")
-    }
+    private fun getUrlWithoutDomain(orig: String): String = throw Exception("Stub!")
 
     /**
      * Returns the url of the provided anime. Useful to fix "open in webview"
@@ -424,9 +452,7 @@ abstract class AnimeHttpSource : AnimeCatalogueSource {
      * @param anime the anime
      * @return url of the anime
      */
-    open fun getAnimeUrl(anime: SAnime): String {
-        throw Exception("Stub!")
-    }
+    open fun getAnimeUrl(anime: SAnime): String = throw Exception("Stub!")
 
     /**
      * Returns the url of the provided episode.
@@ -435,9 +461,7 @@ abstract class AnimeHttpSource : AnimeCatalogueSource {
      * @param episode the episode
      * @return url of the episode
      */
-    open fun getEpisodeUrl(episode: SEpisode): String {
-        throw Exception("Stub!")
-    }
+    open fun getEpisodeUrl(episode: SEpisode): String = throw Exception("Stub!")
 
     /**
      * Called before inserting a new episode into database. Use it if you need to override episode
@@ -446,12 +470,6 @@ abstract class AnimeHttpSource : AnimeCatalogueSource {
      * @param episode the episode to be added.
      * @param anime the anime of the episode.
      */
+    @Deprecated("All modifications should be done when constructing the chapter")
     open fun prepareNewEpisode(episode: SEpisode, anime: SAnime) {}
-
-    /**
-     * Returns the list of filters for the source.
-     */
-    override fun getFilterList(): AnimeFilterList {
-        throw Exception("Stub!")
-    }
 }

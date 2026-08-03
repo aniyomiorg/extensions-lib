@@ -1,5 +1,8 @@
 package eu.kanade.tachiyomi.animesource.model
 
+import kotlinx.serialization.json.JsonObject
+
+@Suppress("UNUSED", "PropertyName")
 interface SAnime {
 
     var url: String
@@ -37,7 +40,20 @@ interface SAnime {
     var season_number: Double
 
     /**
-     * Tells the app if it should call [fetchAnimeDetails].
+     * Extra metadata associated with the anime.
+     *
+     * The JSON object is not visible to users and intended for internal or source-specific
+     * purposes. Apps may define their own namespaced keys (e.g., `"aniyomi.*"`) for sources to populate.
+     *
+     * This allows apps to attach and ask for custom information without affecting the visible
+     * anime data.
+     *
+     * @since extensions-lib 17
+     */
+    var memo: JsonObject
+
+    /**
+     * Tells the app if it should call [getAnimeXXXUpdate].
      */
     var initialized: Boolean
 
