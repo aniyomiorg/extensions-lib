@@ -44,6 +44,7 @@ tasks.withType<KotlinCompile>().configureEach {
 dependencies {
     compileOnly(libs.okhttp)
     compileOnly(libs.jsoup)
+    compileOnly(libs.nanohttpd)
     compileOnly(libs.injekt.core)
     compileOnly(libs.coroutines)
     compileOnly(libs.kotlin.json)

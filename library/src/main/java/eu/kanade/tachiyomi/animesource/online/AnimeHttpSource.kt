@@ -386,6 +386,17 @@ abstract class AnimeHttpSource : AnimeCatalogueSource {
     open suspend fun getImageTile(url: String): Bitmap? = throw Exception("Stub!")
 
     /**
+     * Enable the use of a local http server.
+     *
+     * Return an instance of HttpServer. The app will handle starting and closing of the server.
+     *
+     * @since extensions-lib 17
+     */
+    open fun createHttpServer(): HttpServer? {
+        return null
+    }
+
+    /**
      * Sorts the hoster list. Override this according to the user's preference.
      * This function is called by the app and should not be called in the extension.
      *
