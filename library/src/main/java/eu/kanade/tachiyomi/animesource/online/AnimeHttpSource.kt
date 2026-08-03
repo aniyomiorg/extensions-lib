@@ -1,5 +1,6 @@
 package eu.kanade.tachiyomi.animesource.online
 
+import android.graphics.Bitmap
 import eu.kanade.tachiyomi.network.NetworkHelper
 import eu.kanade.tachiyomi.animesource.AnimeCatalogueSource
 import eu.kanade.tachiyomi.animesource.model.*
@@ -365,6 +366,24 @@ abstract class AnimeHttpSource : AnimeCatalogueSource {
      * @return the resolved video, or null on known failure
      */
     open suspend fun resolveVideo(video: Video): Video? = throw Exception("Stub!")
+
+    /**
+     * Return info for thumbnails to be used as a preview when seeking.
+     *
+     * @since extensions-lib 17
+     * @param video the video information.
+     * @return the info for thumbnails. Return null if no thumbnails exist.
+     */
+    open suspend fun getVideoThumbnails(video: Video): ThumbnailInfo? = throw Exception("Stub!")
+
+    /**
+     * Return bitmap for the image tiles.
+     *
+     * @since extensions-lib 17
+     * @param url the url for the image tiles
+     * @return the image bitmap
+     */
+    open suspend fun getImageTile(url: String): Bitmap? = throw Exception("Stub!")
 
     /**
      * Sorts the hoster list. Override this according to the user's preference.
