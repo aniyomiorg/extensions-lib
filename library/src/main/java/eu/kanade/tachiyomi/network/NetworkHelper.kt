@@ -12,7 +12,10 @@ class NetworkHelper(context: Context) {
     /**
      * @deprecated Since extension-lib 14
      */
-    @Deprecated("The regular client handles Cloudflare by default")
+    @Deprecated(
+        message = "The provided regular client should have cloudflare handling capability",
+        replaceWith = ReplaceWith("client"),
+    )
     val cloudflareClient: OkHttpClient = throw Exception("Stub!")
 
     /**

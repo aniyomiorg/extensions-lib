@@ -15,6 +15,7 @@ import uy.kohesive.injekt.api.get
  * @param transform transformer function that does required changes to the response body.
  * @since extensions-lib 14
  */
+@Deprecated("Source developers should define their own extension functions for more flexibility")
 inline fun <reified T> Response.parseAs(transform: (String) -> String): T {
     val responseBody = transform(body.string())
     return Injekt.get<Json>().decodeFromString(responseBody)
@@ -29,6 +30,7 @@ inline fun <reified T> Response.parseAs(transform: (String) -> String): T {
  *
  * @since extensions-lib 14
  */
+@Deprecated("Source developers should define their own extension functions for more flexibility")
 @ExperimentalSerializationApi
 inline fun <reified T> Response.parseAs(): T = body.source().use {
     Injekt.get<Json>().decodeFromBufferedSource(serializer(), it)
@@ -40,6 +42,7 @@ inline fun <reified T> Response.parseAs(): T = body.source().use {
  * @param transform transformer function that does required changes to the String.
  * @since extensions-lib 14
  */
+@Deprecated("Source developers should define their own extension functions for more flexibility")
 inline fun <reified T> String.parseAs(transform: (String) -> String): T =
     Injekt.get<Json>().decodeFromString(transform(this))
 
@@ -48,4 +51,5 @@ inline fun <reified T> String.parseAs(transform: (String) -> String): T =
  *
  * @since extensions-lib 14
  */
+@Deprecated("Source developers should define their own extension functions for more flexibility")
 inline fun <reified T> String.parseAs(): T = Injekt.get<Json>().decodeFromString(this)
