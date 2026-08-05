@@ -5,9 +5,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     alias(libs.plugins.android.library)
-    alias(libs.plugins.kotlin.android)
-    `maven-publish`
-    alias(libs.plugins.dokkatoo)
+    alias(libs.plugins.maven.publish)
 }
 
 val ver = "17-rc1"
@@ -20,12 +18,6 @@ android {
 
     defaultConfig {
         minSdk = 24
-    }
-
-    buildTypes {
-        named("release") {
-            isMinifyEnabled = false
-        }
     }
 
     val javaVersion = JavaVersion.VERSION_17
@@ -51,70 +43,7 @@ dependencies {
     compileOnly(libs.kotlin.json.okio)
 }
 
-dokkatoo {
-    moduleName.set("extensions-lib")
-    moduleVersion.set(ver)
-    dokkatooPublicationDirectory.set(layout.buildDirectory.dir("docs"))
-    dokkatooSourceSets.main {
-        includes.from("Module.md")
 
-        // Temporary workaround for https://github.com/Kotlin/dokka/issues/2876.
-        analysisPlatform.set(KotlinPlatform.JVM)
-
-        perPackageOption {
-            matchingRegex.set("android.content")
-            suppress.set(true)
-        }
-
-        documentedVisibilities(VisibilityModifier.PUBLIC, VisibilityModifier.PROTECTED)
-
-        externalDocumentationLinks {
-            create("okhttp5") {
-                url("https://square.github.io/okhttp/5.x/")
-            }
-
-            create("jsoup") {
-                url("https://jsoup.org/apidocs/")
-                packageListUrl("https://jsoup.org/apidocs/element-list")
-            }
-        }
-
-        val packageRoot = projectDir.resolve("src/main/java/eu/kanade/tachiyomi/")
-        sourceLink {
-            localDirectory.set(packageRoot.resolve("util/JsonExtensions.kt"))
-            remoteUrl("https://github.com/aniyomiorg/extensions-lib/tree/main/library/src/main/java/eu/kanade/tachiyomi/util/JsonExtensions.kt")
-            remoteLineSuffix.set("#L")
-        }
-
-        sourceLink {
-            localDirectory.set(packageRoot.resolve("util/CoroutinesExtensions.kt"))
-            remoteUrl("https://github.com/aniyomiorg/extensions-lib/tree/main/library/src/main/java/eu/kanade/tachiyomi/util/CoroutinesExtensions.kt")
-            remoteLineSuffix.set("#L")
-        }
-
-        sourceLink {
-            localDirectory.set(packageRoot.resolve("animesource/"))
-            remoteUrl("https://github.com/aniyomiorg/aniyomi/tree/master/source-api/src/commonMain/kotlin/eu/kanade/tachiyomi/animesource/")
-            // The line number is wrong, so we're not going to highlight it.
-            remoteLineSuffix.set("#")
-        }
-
-        sourceLink {
-            localDirectory.set(packageRoot.resolve("network/"))
-            remoteUrl("https://github.com/aniyomiorg/aniyomi/tree/master/core/src/main/java/eu/kanade/tachiyomi/network/")
-            remoteLineSuffix.set("#") // Same as before.
-        }
-    }
-}
-
-publishing {
-    publications {
-        create<MavenPublication>("maven") {
-            artifactId = "extensions-lib"
-
-            afterEvaluate {
-                from(components["release"])
-            }
-        }
-    }
+mavenPublishing {
+    coordinates("com.github.aniyomiorg", "extensions-lib", "17-rc1")
 }
