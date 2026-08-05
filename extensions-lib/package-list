@@ -115,6 +115,9 @@ $dokka.location:eu.kanade.tachiyomi.animesource.model/AnimeUpdateStrategy/values
 $dokka.location:eu.kanade.tachiyomi.animesource.model/AnimesPage///PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-animes-page/index.html
 $dokka.location:eu.kanade.tachiyomi.animesource.model/AnimesPage/AnimesPage/#kotlin.collections.List[eu.kanade.tachiyomi.animesource.model.SAnime]#kotlin.Boolean/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-animes-page/-animes-page.html
 $dokka.location:eu.kanade.tachiyomi.animesource.model/AnimesPage/animes/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-animes-page/animes.html
+$dokka.location:eu.kanade.tachiyomi.animesource.model/AnimesPage/component1/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-animes-page/component1.html
+$dokka.location:eu.kanade.tachiyomi.animesource.model/AnimesPage/component2/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-animes-page/component2.html
+$dokka.location:eu.kanade.tachiyomi.animesource.model/AnimesPage/copy/#kotlin.collections.List[eu.kanade.tachiyomi.animesource.model.SAnime]#kotlin.Boolean/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-animes-page/copy.html
 $dokka.location:eu.kanade.tachiyomi.animesource.model/AnimesPage/hasNextPage/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-animes-page/has-next-page.html
 $dokka.location:eu.kanade.tachiyomi.animesource.model/ChapterType.Ending///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}extensions-lib/eu.kanade.tachiyomi.animesource.model/-chapter-type/-ending/index.html
 $dokka.location:eu.kanade.tachiyomi.animesource.model/ChapterType.MixedOp///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}extensions-lib/eu.kanade.tachiyomi.animesource.model/-chapter-type/-mixed-op/index.html
@@ -141,6 +144,11 @@ $dokka.location:eu.kanade.tachiyomi.animesource.model/Hoster/hosterUrl/#/Pointin
 $dokka.location:eu.kanade.tachiyomi.animesource.model/Hoster/internalData/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-hoster/internal-data.html
 $dokka.location:eu.kanade.tachiyomi.animesource.model/Hoster/lazy/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-hoster/lazy.html
 $dokka.location:eu.kanade.tachiyomi.animesource.model/Hoster/videoList/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-hoster/video-list.html
+$dokka.location:eu.kanade.tachiyomi.animesource.model/HttpServer.Companion///PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-http-server/-companion/index.html
+$dokka.location:eu.kanade.tachiyomi.animesource.model/HttpServer.Companion/PLACEHOLDER_URL/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-http-server/-companion/-p-l-a-c-e-h-o-l-d-e-r_-u-r-l.html
+$dokka.location:eu.kanade.tachiyomi.animesource.model/HttpServer///PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-http-server/index.html
+$dokka.location:eu.kanade.tachiyomi.animesource.model/HttpServer/HttpServer/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-http-server/-http-server.html
+$dokka.location:eu.kanade.tachiyomi.animesource.model/HttpServer/url/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-http-server/url.html
 $dokka.location:eu.kanade.tachiyomi.animesource.model/SAnime.Companion///PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-s-anime/-companion/index.html
 $dokka.location:eu.kanade.tachiyomi.animesource.model/SAnime.Companion/CANCELLED/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-s-anime/-companion/-c-a-n-c-e-l-l-e-d.html
 $dokka.location:eu.kanade.tachiyomi.animesource.model/SAnime.Companion/COMPLETED/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-s-anime/-companion/-c-o-m-p-l-e-t-e-d.html
@@ -158,23 +166,45 @@ $dokka.location:eu.kanade.tachiyomi.animesource.model/SAnime/description/#/Point
 $dokka.location:eu.kanade.tachiyomi.animesource.model/SAnime/fetch_type/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-s-anime/fetch_type.html
 $dokka.location:eu.kanade.tachiyomi.animesource.model/SAnime/genre/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-s-anime/genre.html
 $dokka.location:eu.kanade.tachiyomi.animesource.model/SAnime/initialized/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-s-anime/initialized.html
+$dokka.location:eu.kanade.tachiyomi.animesource.model/SAnime/memo/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-s-anime/memo.html
 $dokka.location:eu.kanade.tachiyomi.animesource.model/SAnime/season_number/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-s-anime/season_number.html
 $dokka.location:eu.kanade.tachiyomi.animesource.model/SAnime/status/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-s-anime/status.html
 $dokka.location:eu.kanade.tachiyomi.animesource.model/SAnime/thumbnail_url/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-s-anime/thumbnail_url.html
 $dokka.location:eu.kanade.tachiyomi.animesource.model/SAnime/title/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-s-anime/title.html
 $dokka.location:eu.kanade.tachiyomi.animesource.model/SAnime/update_strategy/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-s-anime/update_strategy.html
 $dokka.location:eu.kanade.tachiyomi.animesource.model/SAnime/url/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-s-anime/url.html
+$dokka.location:eu.kanade.tachiyomi.animesource.model/SAnimeEpisodeUpdate///PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-s-anime-episode-update/index.html
+$dokka.location:eu.kanade.tachiyomi.animesource.model/SAnimeEpisodeUpdate/SAnimeEpisodeUpdate/#eu.kanade.tachiyomi.animesource.model.SAnime#kotlin.collections.List[eu.kanade.tachiyomi.animesource.model.SEpisode]/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-s-anime-episode-update/-s-anime-episode-update.html
+$dokka.location:eu.kanade.tachiyomi.animesource.model/SAnimeEpisodeUpdate/anime/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-s-anime-episode-update/anime.html
+$dokka.location:eu.kanade.tachiyomi.animesource.model/SAnimeEpisodeUpdate/episodes/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-s-anime-episode-update/episodes.html
+$dokka.location:eu.kanade.tachiyomi.animesource.model/SAnimeSeasonUpdate///PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-s-anime-season-update/index.html
+$dokka.location:eu.kanade.tachiyomi.animesource.model/SAnimeSeasonUpdate/SAnimeSeasonUpdate/#eu.kanade.tachiyomi.animesource.model.SAnime#kotlin.collections.List[eu.kanade.tachiyomi.animesource.model.SAnime]/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-s-anime-season-update/-s-anime-season-update.html
+$dokka.location:eu.kanade.tachiyomi.animesource.model/SAnimeSeasonUpdate/anime/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-s-anime-season-update/anime.html
+$dokka.location:eu.kanade.tachiyomi.animesource.model/SAnimeSeasonUpdate/seasons/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-s-anime-season-update/seasons.html
 $dokka.location:eu.kanade.tachiyomi.animesource.model/SEpisode.Companion///PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-s-episode/-companion/index.html
 $dokka.location:eu.kanade.tachiyomi.animesource.model/SEpisode.Companion/create/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-s-episode/-companion/create.html
 $dokka.location:eu.kanade.tachiyomi.animesource.model/SEpisode///PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-s-episode/index.html
 $dokka.location:eu.kanade.tachiyomi.animesource.model/SEpisode/date_upload/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-s-episode/date_upload.html
 $dokka.location:eu.kanade.tachiyomi.animesource.model/SEpisode/episode_number/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-s-episode/episode_number.html
 $dokka.location:eu.kanade.tachiyomi.animesource.model/SEpisode/fillermark/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-s-episode/fillermark.html
+$dokka.location:eu.kanade.tachiyomi.animesource.model/SEpisode/memo/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-s-episode/memo.html
 $dokka.location:eu.kanade.tachiyomi.animesource.model/SEpisode/name/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-s-episode/name.html
 $dokka.location:eu.kanade.tachiyomi.animesource.model/SEpisode/preview_url/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-s-episode/preview_url.html
 $dokka.location:eu.kanade.tachiyomi.animesource.model/SEpisode/scanlator/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-s-episode/scanlator.html
 $dokka.location:eu.kanade.tachiyomi.animesource.model/SEpisode/summary/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-s-episode/summary.html
 $dokka.location:eu.kanade.tachiyomi.animesource.model/SEpisode/url/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-s-episode/url.html
+$dokka.location:eu.kanade.tachiyomi.animesource.model/ThumbnailInfo///PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-thumbnail-info/index.html
+$dokka.location:eu.kanade.tachiyomi.animesource.model/ThumbnailInfo/ThumbnailInfo/#kotlin.collections.List[eu.kanade.tachiyomi.animesource.model.TileInfo]#kotlin.collections.List[kotlin.String]/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-thumbnail-info/-thumbnail-info.html
+$dokka.location:eu.kanade.tachiyomi.animesource.model/ThumbnailInfo/imageTileUrls/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-thumbnail-info/image-tile-urls.html
+$dokka.location:eu.kanade.tachiyomi.animesource.model/ThumbnailInfo/tileInfo/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-thumbnail-info/tile-info.html
+$dokka.location:eu.kanade.tachiyomi.animesource.model/TileInfo///PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-tile-info/index.html
+$dokka.location:eu.kanade.tachiyomi.animesource.model/TileInfo/TileInfo/#kotlin.Int#kotlin.Long#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-tile-info/-tile-info.html
+$dokka.location:eu.kanade.tachiyomi.animesource.model/TileInfo/height/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-tile-info/height.html
+$dokka.location:eu.kanade.tachiyomi.animesource.model/TileInfo/imageIndex/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-tile-info/image-index.html
+$dokka.location:eu.kanade.tachiyomi.animesource.model/TileInfo/timeMs/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-tile-info/time-ms.html
+$dokka.location:eu.kanade.tachiyomi.animesource.model/TileInfo/width/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-tile-info/width.html
+$dokka.location:eu.kanade.tachiyomi.animesource.model/TileInfo/x/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-tile-info/x.html
+$dokka.location:eu.kanade.tachiyomi.animesource.model/TileInfo/y/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-tile-info/y.html
 $dokka.location:eu.kanade.tachiyomi.animesource.model/TimeStamp///PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-time-stamp/index.html
 $dokka.location:eu.kanade.tachiyomi.animesource.model/TimeStamp/TimeStamp/#kotlin.Double#kotlin.Double#kotlin.String#eu.kanade.tachiyomi.animesource.model.ChapterType/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-time-stamp/-time-stamp.html
 $dokka.location:eu.kanade.tachiyomi.animesource.model/TimeStamp/end/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.model/-time-stamp/end.html
@@ -209,6 +239,7 @@ $dokka.location:eu.kanade.tachiyomi.animesource.online/AnimeHttpSource/animeDeta
 $dokka.location:eu.kanade.tachiyomi.animesource.online/AnimeHttpSource/animeDetailsRequest/#eu.kanade.tachiyomi.animesource.model.SAnime/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.online/-anime-http-source/anime-details-request.html
 $dokka.location:eu.kanade.tachiyomi.animesource.online/AnimeHttpSource/baseUrl/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.online/-anime-http-source/base-url.html
 $dokka.location:eu.kanade.tachiyomi.animesource.online/AnimeHttpSource/client/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.online/-anime-http-source/client.html
+$dokka.location:eu.kanade.tachiyomi.animesource.online/AnimeHttpSource/createHttpServer/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.online/-anime-http-source/create-http-server.html
 $dokka.location:eu.kanade.tachiyomi.animesource.online/AnimeHttpSource/episodeListParse/#okhttp3.Response/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.online/-anime-http-source/episode-list-parse.html
 $dokka.location:eu.kanade.tachiyomi.animesource.online/AnimeHttpSource/episodeListRequest/#eu.kanade.tachiyomi.animesource.model.SAnime/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.online/-anime-http-source/episode-list-request.html
 $dokka.location:eu.kanade.tachiyomi.animesource.online/AnimeHttpSource/generateId/#kotlin.String#kotlin.String#kotlin.Int/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.online/-anime-http-source/generate-id.html
@@ -216,10 +247,10 @@ $dokka.location:eu.kanade.tachiyomi.animesource.online/AnimeHttpSource/getAnimeD
 $dokka.location:eu.kanade.tachiyomi.animesource.online/AnimeHttpSource/getAnimeUrl/#eu.kanade.tachiyomi.animesource.model.SAnime/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.online/-anime-http-source/get-anime-url.html
 $dokka.location:eu.kanade.tachiyomi.animesource.online/AnimeHttpSource/getEpisodeList/#eu.kanade.tachiyomi.animesource.model.SAnime/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.online/-anime-http-source/get-episode-list.html
 $dokka.location:eu.kanade.tachiyomi.animesource.online/AnimeHttpSource/getEpisodeUrl/#eu.kanade.tachiyomi.animesource.model.SEpisode/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.online/-anime-http-source/get-episode-url.html
-$dokka.location:eu.kanade.tachiyomi.animesource.online/AnimeHttpSource/getFilterList/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.online/-anime-http-source/get-filter-list.html
-$dokka.location:eu.kanade.tachiyomi.animesource.online/AnimeHttpSource/getHosterList/#eu.kanade.tachiyomi.animesource.model.SEpisode/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.online/-anime-http-source/get-hoster-list.html
+$dokka.location:eu.kanade.tachiyomi.animesource.online/AnimeHttpSource/getHomeUrl/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.online/-anime-http-source/get-home-url.html
+$dokka.location:eu.kanade.tachiyomi.animesource.online/AnimeHttpSource/getImageTile/#kotlin.String/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.online/-anime-http-source/get-image-tile.html
 $dokka.location:eu.kanade.tachiyomi.animesource.online/AnimeHttpSource/getSeasonList/#eu.kanade.tachiyomi.animesource.model.SAnime/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.online/-anime-http-source/get-season-list.html
-$dokka.location:eu.kanade.tachiyomi.animesource.online/AnimeHttpSource/getVideoList/#eu.kanade.tachiyomi.animesource.model.Hoster/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.online/-anime-http-source/get-video-list.html
+$dokka.location:eu.kanade.tachiyomi.animesource.online/AnimeHttpSource/getVideoThumbnails/#eu.kanade.tachiyomi.animesource.model.Video/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.online/-anime-http-source/get-video-thumbnails.html
 $dokka.location:eu.kanade.tachiyomi.animesource.online/AnimeHttpSource/getVideoUrl/#eu.kanade.tachiyomi.animesource.model.Video/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.online/-anime-http-source/get-video-url.html
 $dokka.location:eu.kanade.tachiyomi.animesource.online/AnimeHttpSource/headers/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.online/-anime-http-source/headers.html
 $dokka.location:eu.kanade.tachiyomi.animesource.online/AnimeHttpSource/headersBuilder/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.online/-anime-http-source/headers-builder.html
@@ -279,20 +310,29 @@ $dokka.location:eu.kanade.tachiyomi.animesource.online/UriType.Unknown///Pointin
 $dokka.location:eu.kanade.tachiyomi.animesource.online/UriType///PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource.online/-uri-type/index.html
 $dokka.location:eu.kanade.tachiyomi.animesource////PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource/index.html
 $dokka.location:eu.kanade.tachiyomi.animesource/AnimeCatalogueSource///PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource/-anime-catalogue-source/index.html
-$dokka.location:eu.kanade.tachiyomi.animesource/AnimeCatalogueSource/getFilterList/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource/-anime-catalogue-source/get-filter-list.html
+$dokka.location:eu.kanade.tachiyomi.animesource/AnimeCatalogueSource/getAnimeEpisodeUpdate/#eu.kanade.tachiyomi.animesource.model.SAnime#kotlin.collections.List[eu.kanade.tachiyomi.animesource.model.SEpisode]#kotlin.Boolean#kotlin.Boolean/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource/-anime-catalogue-source/get-anime-episode-update.html
+$dokka.location:eu.kanade.tachiyomi.animesource/AnimeCatalogueSource/getAnimeSeasonUpdate/#eu.kanade.tachiyomi.animesource.model.SAnime#kotlin.collections.List[eu.kanade.tachiyomi.animesource.model.SAnime]#kotlin.Boolean#kotlin.Boolean/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource/-anime-catalogue-source/get-anime-season-update.html
+$dokka.location:eu.kanade.tachiyomi.animesource/AnimeCatalogueSource/getHosterList/#eu.kanade.tachiyomi.animesource.model.SEpisode/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource/-anime-catalogue-source/get-hoster-list.html
 $dokka.location:eu.kanade.tachiyomi.animesource/AnimeCatalogueSource/getLatestUpdates/#kotlin.Int/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource/-anime-catalogue-source/get-latest-updates.html
 $dokka.location:eu.kanade.tachiyomi.animesource/AnimeCatalogueSource/getPopularAnime/#kotlin.Int/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource/-anime-catalogue-source/get-popular-anime.html
 $dokka.location:eu.kanade.tachiyomi.animesource/AnimeCatalogueSource/getSearchAnime/#kotlin.Int#kotlin.String#eu.kanade.tachiyomi.animesource.model.AnimeFilterList/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource/-anime-catalogue-source/get-search-anime.html
+$dokka.location:eu.kanade.tachiyomi.animesource/AnimeCatalogueSource/getVideoList/#eu.kanade.tachiyomi.animesource.model.Hoster/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource/-anime-catalogue-source/get-video-list.html
 $dokka.location:eu.kanade.tachiyomi.animesource/AnimeCatalogueSource/lang/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource/-anime-catalogue-source/lang.html
-$dokka.location:eu.kanade.tachiyomi.animesource/AnimeCatalogueSource/supportsLatest/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource/-anime-catalogue-source/supports-latest.html
 $dokka.location:eu.kanade.tachiyomi.animesource/AnimeSource///PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource/-anime-source/index.html
 $dokka.location:eu.kanade.tachiyomi.animesource/AnimeSource/getAnimeDetails/#eu.kanade.tachiyomi.animesource.model.SAnime/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource/-anime-source/get-anime-details.html
+$dokka.location:eu.kanade.tachiyomi.animesource/AnimeSource/getAnimeEpisodeUpdate/#eu.kanade.tachiyomi.animesource.model.SAnime#kotlin.collections.List[eu.kanade.tachiyomi.animesource.model.SEpisode]#kotlin.Boolean#kotlin.Boolean/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource/-anime-source/get-anime-episode-update.html
+$dokka.location:eu.kanade.tachiyomi.animesource/AnimeSource/getAnimeSeasonUpdate/#eu.kanade.tachiyomi.animesource.model.SAnime#kotlin.collections.List[eu.kanade.tachiyomi.animesource.model.SAnime]#kotlin.Boolean#kotlin.Boolean/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource/-anime-source/get-anime-season-update.html
 $dokka.location:eu.kanade.tachiyomi.animesource/AnimeSource/getEpisodeList/#eu.kanade.tachiyomi.animesource.model.SAnime/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource/-anime-source/get-episode-list.html
+$dokka.location:eu.kanade.tachiyomi.animesource/AnimeSource/getFilterList/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource/-anime-source/get-filter-list.html
 $dokka.location:eu.kanade.tachiyomi.animesource/AnimeSource/getHosterList/#eu.kanade.tachiyomi.animesource.model.SEpisode/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource/-anime-source/get-hoster-list.html
+$dokka.location:eu.kanade.tachiyomi.animesource/AnimeSource/getLatestUpdates/#kotlin.Int/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource/-anime-source/get-latest-updates.html
+$dokka.location:eu.kanade.tachiyomi.animesource/AnimeSource/getPopularAnime/#kotlin.Int/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource/-anime-source/get-popular-anime.html
+$dokka.location:eu.kanade.tachiyomi.animesource/AnimeSource/getSearchAnime/#kotlin.Int#kotlin.String#eu.kanade.tachiyomi.animesource.model.AnimeFilterList/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource/-anime-source/get-search-anime.html
 $dokka.location:eu.kanade.tachiyomi.animesource/AnimeSource/getSeasonList/#eu.kanade.tachiyomi.animesource.model.SAnime/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource/-anime-source/get-season-list.html
 $dokka.location:eu.kanade.tachiyomi.animesource/AnimeSource/getVideoList/#eu.kanade.tachiyomi.animesource.model.Hoster/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource/-anime-source/get-video-list.html
 $dokka.location:eu.kanade.tachiyomi.animesource/AnimeSource/id/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource/-anime-source/id.html
 $dokka.location:eu.kanade.tachiyomi.animesource/AnimeSource/name/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource/-anime-source/name.html
+$dokka.location:eu.kanade.tachiyomi.animesource/AnimeSource/supportsLatest/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource/-anime-source/supports-latest.html
 $dokka.location:eu.kanade.tachiyomi.animesource/AnimeSourceFactory///PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource/-anime-source-factory/index.html
 $dokka.location:eu.kanade.tachiyomi.animesource/AnimeSourceFactory/createSources/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource/-anime-source-factory/create-sources.html
 $dokka.location:eu.kanade.tachiyomi.animesource/ConfigurableAnimeSource///PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.animesource/-configurable-anime-source/index.html
@@ -324,6 +364,26 @@ $dokka.location:eu.kanade.tachiyomi.network/NetworkHelper/NetworkHelper/#android
 $dokka.location:eu.kanade.tachiyomi.network/NetworkHelper/client/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.network/-network-helper/client.html
 $dokka.location:eu.kanade.tachiyomi.network/NetworkHelper/cloudflareClient/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.network/-network-helper/cloudflare-client.html
 $dokka.location:eu.kanade.tachiyomi.network/NetworkHelper/defaultUserAgentProvider/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.network/-network-helper/default-user-agent-provider.html
+$dokka.location:eu.kanade.tachiyomi.torrentutils.model////PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.torrentutils.model/index.html
+$dokka.location:eu.kanade.tachiyomi.torrentutils.model/DeadTorrentException///PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.torrentutils.model/-dead-torrent-exception/index.html
+$dokka.location:eu.kanade.tachiyomi.torrentutils.model/DeadTorrentException/DeadTorrentException/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.torrentutils.model/-dead-torrent-exception/-dead-torrent-exception.html
+$dokka.location:eu.kanade.tachiyomi.torrentutils.model/TorrentFile///PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.torrentutils.model/-torrent-file/index.html
+$dokka.location:eu.kanade.tachiyomi.torrentutils.model/TorrentFile/TorrentFile/#kotlin.String#kotlin.Int#kotlin.Long#kotlin.String#kotlin.collections.List[kotlin.String]/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.torrentutils.model/-torrent-file/-torrent-file.html
+$dokka.location:eu.kanade.tachiyomi.torrentutils.model/TorrentFile/indexFile/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.torrentutils.model/-torrent-file/index-file.html
+$dokka.location:eu.kanade.tachiyomi.torrentutils.model/TorrentFile/path/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.torrentutils.model/-torrent-file/path.html
+$dokka.location:eu.kanade.tachiyomi.torrentutils.model/TorrentFile/size/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.torrentutils.model/-torrent-file/size.html
+$dokka.location:eu.kanade.tachiyomi.torrentutils.model/TorrentFile/toMagnetURI/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.torrentutils.model/-torrent-file/to-magnet-u-r-i.html
+$dokka.location:eu.kanade.tachiyomi.torrentutils.model/TorrentInfo///PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.torrentutils.model/-torrent-info/index.html
+$dokka.location:eu.kanade.tachiyomi.torrentutils.model/TorrentInfo/TorrentInfo/#kotlin.String#kotlin.collections.List[eu.kanade.tachiyomi.torrentutils.model.TorrentFile]#kotlin.String#kotlin.Long#kotlin.collections.List[kotlin.String]/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.torrentutils.model/-torrent-info/-torrent-info.html
+$dokka.location:eu.kanade.tachiyomi.torrentutils.model/TorrentInfo/files/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.torrentutils.model/-torrent-info/files.html
+$dokka.location:eu.kanade.tachiyomi.torrentutils.model/TorrentInfo/hash/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.torrentutils.model/-torrent-info/hash.html
+$dokka.location:eu.kanade.tachiyomi.torrentutils.model/TorrentInfo/setTrackers/#kotlin.collections.List[kotlin.String]/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.torrentutils.model/-torrent-info/set-trackers.html
+$dokka.location:eu.kanade.tachiyomi.torrentutils.model/TorrentInfo/size/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.torrentutils.model/-torrent-info/size.html
+$dokka.location:eu.kanade.tachiyomi.torrentutils.model/TorrentInfo/title/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.torrentutils.model/-torrent-info/title.html
+$dokka.location:eu.kanade.tachiyomi.torrentutils.model/TorrentInfo/trackers/#/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.torrentutils.model/-torrent-info/trackers.html
+$dokka.location:eu.kanade.tachiyomi.torrentutils////PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.torrentutils/index.html
+$dokka.location:eu.kanade.tachiyomi.torrentutils/TorrentUtils///PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.torrentutils/-torrent-utils/index.html
+$dokka.location:eu.kanade.tachiyomi.torrentutils/TorrentUtils/getTorrentInfo/#kotlin.String#kotlin.String/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.torrentutils/-torrent-utils/get-torrent-info.html
 $dokka.location:eu.kanade.tachiyomi.util////PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.util/index.html
 $dokka.location:eu.kanade.tachiyomi.util//asJsoup/okhttp3.Response#kotlin.String?/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.util/as-jsoup.html
 $dokka.location:eu.kanade.tachiyomi.util//parallelCatchingFlatMap/kotlin.collections.Iterable[TypeParam(bounds=[kotlin.Any?])]#kotlin.coroutines.SuspendFunction1[TypeParam(bounds=[kotlin.Any?]),kotlin.collections.Iterable[TypeParam(bounds=[kotlin.Any?])]]/PointingToDeclaration/extensions-lib/eu.kanade.tachiyomi.util/parallel-catching-flat-map.html
@@ -349,5 +409,7 @@ eu.kanade.tachiyomi.animesource.model
 eu.kanade.tachiyomi.animesource.online
 eu.kanade.tachiyomi.network
 eu.kanade.tachiyomi.network.interceptor
+eu.kanade.tachiyomi.torrentutils
+eu.kanade.tachiyomi.torrentutils.model
 eu.kanade.tachiyomi.util
 
