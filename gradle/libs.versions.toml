@@ -4,7 +4,7 @@ coroutines_version = "1.10.2"
 kotlin_version = "2.4.0"
 nanohttpd = "2.3.1"
 serialization_version = "1.9.0"
-dokkatoo_version = "2.4.0"
+dokka_version = "2.2.0"
 maven-publish = "0.36.0"
 
 [libraries]
@@ -20,6 +20,6 @@ nanohttpd = { module = "org.nanohttpd:nanohttpd", version.ref = "nanohttpd" }
 
 [plugins]
 android-library = { id = "com.android.library", version.ref = "agp_version" }
-dokkatoo = { id = "dev.adamko.dokkatoo", version.ref = "dokkatoo_version" }
+dokka = { id = "org.jetbrains.dokka", version.ref = "dokka_version" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin_version" }
 maven-publish = { id = "com.vanniktech.maven.publish", version.ref = "maven-publish" }
