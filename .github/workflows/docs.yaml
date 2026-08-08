@@ -2,12 +2,8 @@ name: Generate docs
 
 on:
   push:
-    branches:
-      - main
-    paths-ignore:
-      - '**.md'
-      - '**.yaml'
-  workflow_dispatch:
+    tags:
+      - v*
 
 permissions:
   contents: write
