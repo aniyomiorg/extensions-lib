@@ -39,8 +39,11 @@ Extensions are required to declare the following features and metadata to be cor
         <!-- Content Rating: 0 = Safe, 1 = Mixed, 2 = NSFW -->
         <meta-data android:name="aniyomix.contentWarning" android:value="0" />
 
+        <!-- Torrent extension -->
+        <meta-data android:name="aniyomix.torrent" android:value="false" />
+        
         <!-- Target library version -->
-        <meta-data android:name="aniyomix.extensionLib" android:value="1.6" />
+        <meta-data android:name="aniyomix.extensionLib" android:value="17" />
 
         <!-- The fully qualified (or relative to package name) class name of the extension -->
         <meta-data android:name="tachiyomi.animeextension.class" android:value=".Aniyomi" />
