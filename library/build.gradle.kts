@@ -103,5 +103,5 @@ dokka {
 }
 
 mavenPublishing {
-    coordinates("com.github.aniyomiorg", "extensions-lib", "17-rc1")
+    coordinates("com.github.aniyomiorg", "extensions-lib", "18-local")
 }
