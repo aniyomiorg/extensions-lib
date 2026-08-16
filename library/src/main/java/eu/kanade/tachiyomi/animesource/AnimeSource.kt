@@ -116,7 +116,6 @@ interface AnimeSource {
      * @since extensions-lib 17
      */
     val supportsRelatedAnime: Boolean
-        get() = false
 
     /**
      * Get anime related to [anime], grouped by relation label
@@ -125,7 +124,7 @@ interface AnimeSource {
      * @param anime the anime whose relations are requested
      * @return the relation groups, in display order
      */
-    suspend fun getRelatedAnimeList(anime: SAnime): List<AnimeRelation> = throw Exception("Stub!")
+    suspend fun getRelatedAnimeList(anime: SAnime): List<AnimeRelation>
 
     /**
      * Get the list of hoster for an episode.

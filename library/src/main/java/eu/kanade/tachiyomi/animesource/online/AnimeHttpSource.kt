@@ -302,33 +302,6 @@ abstract class AnimeHttpSource : AnimeCatalogueSource {
     )
     protected open fun seasonListParse(response: Response): List<SAnime> = throw Exception("Stub!")
 
-
-    /**
-     * Get anime related to [anime]. By default this issues [relatedAnimeListRequest] and hands
-     * the response to [relatedAnimeListParse]; override this directly if the relations come from
-     * more than one request.
-     *
-     * Remember to also set [supportsRelatedAnime] to `true`
-     *
-     * @since extensions-lib 17
-     */
-    override suspend fun getRelatedAnimeList(anime: SAnime): List<AnimeRelation> = throw Exception("Stub!")
-
-    /**
-     * Returns the request for the related anime of [anime]. Defaults to the anime's url
-     *
-     * @since extensions-lib 17
-     */
-    protected open fun relatedAnimeListRequest(anime: SAnime): Request = throw Exception("Stub!")
-
-    /**
-     * Parses the response and returns the relation group
-     *
-     * @since extensions-lib 17
-     */
-    protected open fun relatedAnimeListParse(response: Response): List<AnimeRelation> = throw Exception("Stub!")
-
-
     /**
      * Returns the request for getting the hosters. Override only if it's needed to override
      * the url, send different headers or request method like POST.

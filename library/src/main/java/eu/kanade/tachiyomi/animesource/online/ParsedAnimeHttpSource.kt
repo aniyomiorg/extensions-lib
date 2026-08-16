@@ -164,36 +164,4 @@ abstract class ParsedAnimeHttpSource : AnimeHttpSource() {
      * @param element an element obtained from [seasonListSelector].
      */
     protected abstract fun seasonFromElement(element: Element): SAnime
-
-    /**
-     * Parses the response and returns a single relation group built from
-     * [relatedAnimeListSelector], [relatedAnimeFromElement] and [relatedAnimeListName]
-     * Override [getRelatedAnimeList] instead if the site has several groups
-     *
-     * @since extensions-lib 17
-     */
-    override fun relatedAnimeListParse(response: Response): List<AnimeRelation> {
-        throw Exception("Stub!")
-    }
-
-    /**
-     * Returns the Jsoup selector matching each related anime
-     *
-     * @since extensions-lib 17
-     */
-    protected open fun relatedAnimeListSelector(): String = throw Exception("Stub!")
-
-    /**
-     * Returns a related anime from the given [element]. Url, title and thumbnail
-     *
-     * @since extensions-lib 17
-     */
-    protected open fun relatedAnimeFromElement(element: Element): SAnime = throw Exception("Stub!")
-
-    /**
-     * Label shown above the relation row. Defaults to "Related"
-     *
-     * @since extensions-lib 17
-     */
-    protected open fun relatedAnimeListName(): String = throw Exception("Stub!")
 }
