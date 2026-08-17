@@ -1,6 +1,7 @@
 package eu.kanade.tachiyomi.animesource
 
 import eu.kanade.tachiyomi.animesource.model.AnimeFilterList
+import eu.kanade.tachiyomi.animesource.model.AnimeRelation
 import eu.kanade.tachiyomi.animesource.model.AnimesPage
 import eu.kanade.tachiyomi.animesource.model.Hoster
 import eu.kanade.tachiyomi.animesource.model.SAnime
@@ -43,6 +44,10 @@ interface AnimeCatalogueSource : AnimeSource {
         fetchDetails: Boolean,
         fetchSeasons: Boolean
     ): SAnimeSeasonUpdate {
+        throw Exception("Stub!")
+    }
+
+    override suspend fun getRelatedAnimeList(anime: SAnime): List<AnimeRelation> {
         throw Exception("Stub!")
     }
 

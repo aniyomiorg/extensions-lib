@@ -1,6 +1,7 @@
 package eu.kanade.tachiyomi.animesource
 
 import eu.kanade.tachiyomi.animesource.model.AnimeFilterList
+import eu.kanade.tachiyomi.animesource.model.AnimeRelation
 import eu.kanade.tachiyomi.animesource.model.AnimesPage
 import eu.kanade.tachiyomi.animesource.model.Hoster
 import eu.kanade.tachiyomi.animesource.model.Video
@@ -106,6 +107,24 @@ interface AnimeSource {
         fetchDetails: Boolean,
         fetchSeasons: Boolean,
     ): SAnimeSeasonUpdate
+
+    /**
+     * Whether this source supports related anime list for an entry
+     *
+     * The function [getRelatedAnimeList] is only called when this is `true`
+     *
+     * @since extensions-lib 17
+     */
+    val supportsRelatedAnime: Boolean
+
+    /**
+     * Get anime related to [anime], grouped by relation label
+     *
+     * @since extensions-lib 17
+     * @param anime the anime whose relations are requested
+     * @return the relation groups, in display order
+     */
+    suspend fun getRelatedAnimeList(anime: SAnime): List<AnimeRelation>
 
     /**
      * Get the list of hoster for an episode.
