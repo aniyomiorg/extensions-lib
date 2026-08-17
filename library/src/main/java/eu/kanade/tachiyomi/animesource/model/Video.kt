@@ -1,5 +1,6 @@
 package eu.kanade.tachiyomi.animesource.model
 
+import kotlinx.serialization.json.JsonObject
 import okhttp3.Headers
 
 /**
@@ -46,8 +47,10 @@ data class TimeStamp(
  * @param mpvArgs Extra arguments passed to mpv.
  * @param ffmpegStreamArgs Extra arguments passed to the video stream when downloading.
  * @param ffmpegVideoArgs Extra arguments passed to ffmpeg when downloading.
- * @param internalData Internal data used by resolveVideo.
  * @param initialized Whether to call resolveVideo.
+ * @param memo Extra metadata associated with the video. The JSON object is not visible to users and
+ * intended for internal or source-specific purposes. Apps may define their own namespaced
+ * keys (e.g., `"aniyomi.*"`) for sources to populate.
  */
 @Suppress("unused_parameter")
 data class Video(
@@ -63,8 +66,10 @@ data class Video(
     val mpvArgs: List<Pair<String, String>> = emptyList(),
     val ffmpegStreamArgs: List<Pair<String, String>> = emptyList(),
     val ffmpegVideoArgs: List<Pair<String, String>> = emptyList(),
+    @Deprecated("Use memo instead", level = DeprecationLevel.ERROR)
     val internalData: String = "",
     val initialized: Boolean = false,
+    val memo: JsonObject = JsonObject(emptyMap()),
 ) {
     @Deprecated(
         message = "Use the new Video constructor",
