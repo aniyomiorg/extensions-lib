@@ -65,6 +65,11 @@ Host apps using `extensions-lib` must include the following dependencies (or new
 | Injekt                | `com.github.mihonapp:injekt`                                                                                                                                                | `91edab2317` |
 | Nanohttpd             | `org.nanohttpd:nanohttpd`                                                                                                                                                   | `2.3.1`      |
 
+## 📖 Documentation
+
+Documentation for the last released version can be found at https://extension-docs.aniyomi.org/.  
+Documentation for the next version (generated from the current main branch) can be found here: https://unstable-extension-docs.aniyomi.org/.
+
 ## 📄 License
 
 Extensions-lib is distributed under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).
