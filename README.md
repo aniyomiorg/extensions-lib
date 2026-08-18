@@ -31,7 +31,7 @@ Extensions are required to declare the following features and metadata to be cor
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-    <uses-feature android:name="tachiyomi.extension" />
+    <uses-feature android:name="tachiyomi.animeextension" />
     <application>
         <!-- The display name of the extension -->
         <meta-data android:name="aniyomix.name" android:value="Aniyomi Anime" />
