@@ -1,5 +1,6 @@
 package eu.kanade.tachiyomi.animesource.online
 
+import eu.kanade.tachiyomi.animesource.model.AnimeRelation
 import eu.kanade.tachiyomi.animesource.model.AnimesPage
 import eu.kanade.tachiyomi.animesource.model.Video
 import eu.kanade.tachiyomi.animesource.model.SEpisode
@@ -13,6 +14,10 @@ import org.jsoup.nodes.Element
  * A simple implementation for sources from a website using Jsoup, an HTML parser.
  */
 @Suppress("unused", "unused_parameter")
+@Deprecated(
+    message = "In most cases sources only require a subset of the methods from this class. " +
+            "Source developers should make their own implementation according to their needs."
+)
 abstract class ParsedAnimeHttpSource : AnimeHttpSource() {
 
     /**
@@ -136,34 +141,27 @@ abstract class ParsedAnimeHttpSource : AnimeHttpSource() {
     protected abstract fun episodeFromElement(element: Element): SEpisode
 
     /**
-     * Parses the response from the site and returns a list of videos.
+     * Parses the response from the site and returns a list of seasons.
      *
+     * @since extensions-lib 16
      * @param response the response from the site.
      */
-    override fun videoListParse(response: Response): List<Video> {
+    override fun seasonListParse(response: Response): List<SAnime> {
         throw Exception("Stub!")
     }
 
     /**
-     * Returns the Jsoup selector that returns a list of [Element] corresponding to each video.
+     * Returns the Jsoup selector that returns a list of [Element] corresponding to each season.
+     *
+     * @since extensions-lib 16
      */
-    protected abstract fun videoListSelector(): String
+    protected abstract fun seasonListSelector(): String
 
     /**
-     * Returns a video from the given element.
+     * Returns a season from the given element.
      *
-     * @param element an element obtained from [videoListSelector].
+     * @since extensions-lib 16
+     * @param element an element obtained from [seasonListSelector].
      */
-    protected abstract fun videoFromElement(element: Element): Video
-
-    override fun videoUrlParse(response: Response): String {
-        throw Exception("Stub!")
-    }
-
-    /**
-     * Returns the absolute url to the video url from the document.
-     *
-     * @param document the parsed document.
-     */
-    protected abstract fun videoUrlParse(document: Document): String
+    protected abstract fun seasonFromElement(element: Element): SAnime
 }

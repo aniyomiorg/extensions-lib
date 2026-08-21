@@ -1,5 +1,8 @@
 package eu.kanade.tachiyomi.animesource.model
 
+import kotlinx.serialization.json.JsonObject
+
+@Suppress("UNUSED", "PropertyName")
 interface SAnime {
 
     var url: String
@@ -24,14 +27,33 @@ interface SAnime {
 
     var thumbnail_url: String?
 
+    var background_url: String?
+
     /**
      * Useful to exclude animes/movies that will always only have the same episode list
      * from the global updates.
      */
     var update_strategy: AnimeUpdateStrategy
 
+    var fetch_type: FetchType
+
+    var season_number: Double
+
     /**
-     * Tells the app if it should call [fetchAnimeDetails].
+     * Extra metadata associated with the anime.
+     *
+     * The JSON object is not visible to users and intended for internal or source-specific
+     * purposes. Apps may define their own namespaced keys (e.g., `"aniyomi.*"`) for sources to populate.
+     *
+     * This allows apps to attach and ask for custom information without affecting the visible
+     * anime data.
+     *
+     * @since extensions-lib 17
+     */
+    var memo: JsonObject
+
+    /**
+     * Tells the app if it should call [getAnimeXXXUpdate].
      */
     var initialized: Boolean
 
@@ -43,6 +65,7 @@ interface SAnime {
         const val PUBLISHING_FINISHED = 4
         const val CANCELLED = 5
         const val ON_HIATUS = 6
+        const val UPCOMING = 7
 
         fun create(): SAnime {
             throw Exception("Stub!")

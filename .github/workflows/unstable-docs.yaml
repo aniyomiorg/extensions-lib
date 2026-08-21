@@ -1,12 +1,13 @@
-name: Generate docs
+name: Generate unstable docs
 
 on:
   push:
-    tags:
-      - v*
+    branches:
+      - main
     paths-ignore:
       - '**.md'
       - '**.yaml'
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -30,3 +31,5 @@ jobs:
         with:
           BRANCH: gh-pages
           FOLDER: library/build/docs/html
+          repository-name: aniyomiorg/unstable-extensions-lib-docs
+          ssh-key: ${{ secrets.DEPLOY_KEY_UNSTABLE_DOCS }}

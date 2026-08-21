@@ -11,6 +11,7 @@ import kotlinx.coroutines.withContext
  *
  * @since extensions-lib 14
  */
+@Deprecated("Source developers should define their own extension functions for more flexibility")
 suspend inline fun <A, B> Iterable<A>.parallelMap(crossinline f: suspend (A) -> B): List<B> =
     withContext(Dispatchers.IO) {
         map { async { f(it) } }.awaitAll()
@@ -21,6 +22,7 @@ suspend inline fun <A, B> Iterable<A>.parallelMap(crossinline f: suspend (A) -> 
  *
  * @since extensions-lib 14
  */
+@Deprecated("Source developers should define their own extension functions for more flexibility")
 inline fun <A, B> Iterable<A>.parallelMapBlocking(crossinline f: suspend (A) -> B): List<B> =
     runBlocking { parallelMap(f) }
 
@@ -29,6 +31,7 @@ inline fun <A, B> Iterable<A>.parallelMapBlocking(crossinline f: suspend (A) -> 
  *
  * @since extensions-lib 14
  */
+@Deprecated("Source developers should define their own extension functions for more flexibility")
 suspend inline fun <A, B> Iterable<A>.parallelMapNotNull(crossinline f: suspend (A) -> B?): List<B> =
     withContext(Dispatchers.IO) {
         map { async { f(it) } }.awaitAll().filterNotNull()
@@ -39,6 +42,7 @@ suspend inline fun <A, B> Iterable<A>.parallelMapNotNull(crossinline f: suspend 
  *
  * @since extensions-lib 14
  */
+@Deprecated("Source developers should define their own extension functions for more flexibility")
 inline fun <A, B> Iterable<A>.parallelMapNotNullBlocking(crossinline f: suspend (A) -> B?): List<B> =
     runBlocking { parallelMapNotNull(f) }
 
@@ -47,6 +51,7 @@ inline fun <A, B> Iterable<A>.parallelMapNotNullBlocking(crossinline f: suspend 
  *
  * @since extensions-lib 14
  */
+@Deprecated("Source developers should define their own extension functions for more flexibility")
 suspend inline fun <A, B> Iterable<A>.parallelFlatMap(crossinline f: suspend (A) -> Iterable<B>): List<B> =
     withContext(Dispatchers.IO) {
         map { async { f(it) } }.awaitAll().flatten()
@@ -57,6 +62,7 @@ suspend inline fun <A, B> Iterable<A>.parallelFlatMap(crossinline f: suspend (A)
  *
  * @since extensions-lib 14
  */
+@Deprecated("Source developers should define their own extension functions for more flexibility")
 inline fun <A, B> Iterable<A>.parallelFlatMapBlocking(crossinline f: suspend (A) -> Iterable<B>): List<B> =
     runBlocking { parallelFlatMap(f) }
 
@@ -66,6 +72,7 @@ inline fun <A, B> Iterable<A>.parallelFlatMapBlocking(crossinline f: suspend (A)
  *
  * @since extensions-lib 14
  */
+@Deprecated("Source developers should define their own extension functions for more flexibility")
 suspend inline fun <A, B> Iterable<A>.parallelCatchingFlatMap(crossinline f: suspend (A) -> Iterable<B>): List<B> =
     withContext(Dispatchers.IO) {
         map {
@@ -84,5 +91,6 @@ suspend inline fun <A, B> Iterable<A>.parallelCatchingFlatMap(crossinline f: sus
  *
  * @since extensions-lib 14
  */
+@Deprecated("Source developers should define their own extension functions for more flexibility")
 inline fun <A, B> Iterable<A>.parallelCatchingFlatMapBlocking(crossinline f: suspend (A) -> Iterable<B>): List<B> =
     runBlocking { parallelCatchingFlatMap(f) }

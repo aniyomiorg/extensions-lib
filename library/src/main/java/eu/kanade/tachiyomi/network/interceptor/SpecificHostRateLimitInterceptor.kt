@@ -48,6 +48,12 @@ fun OkHttpClient.Builder.rateLimitHost(
  * @param period [Duration] The limiting duration. Defaults to 1.seconds.
  */
 @Suppress("unused_parameter")
+@Deprecated(
+    message = "Default rate limiting implementation is no longer provided. Source developers are now " +
+            "responsible for implementing their own rate limiting logic if desired, to prevent forks " +
+            "from bypassing it.",
+    replaceWith = ReplaceWith("this"),
+)
 fun OkHttpClient.Builder.rateLimitHost(
     httpUrl: HttpUrl,
     permits: Int,
@@ -69,6 +75,12 @@ fun OkHttpClient.Builder.rateLimitHost(
  * @param period [Duration] The limiting duration. Defaults to 1.seconds.
  */
 @Suppress("unused_parameter")
+@Deprecated(
+    message = "Default rate limiting implementation is no longer provided. Source developers are now " +
+            "responsible for implementing their own rate limiting logic if desired, to prevent forks " +
+            "from bypassing it.",
+    replaceWith = ReplaceWith("this"),
+)
 fun OkHttpClient.Builder.rateLimitHost(
     url: String,
     permits: Int,
