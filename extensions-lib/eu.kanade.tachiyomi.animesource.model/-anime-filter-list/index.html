@@ -1,88 +1,130 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html class="no-js" lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <title>AnimeFilterList</title>
     <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
-    <script>var pathToRoot = "../../../";</script>
-    <script>document.documentElement.classList.replace("no-js","js");</script>
+        <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
     <script>const storage = localStorage.getItem("dokka-dark-mode")
-    if (storage == null) {
+      if (storage == null) {
         const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
         if (osDarkSchemePreferred === true) {
-            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
         }
-    } else {
+      } else {
         const savedDarkMode = JSON.parse(storage)
-        if(savedDarkMode === true) {
-            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        if (savedDarkMode === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
         }
-    }
+      }
     </script>
-<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async="async"></script>
 <script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
 <link href="../../../styles/style.css" rel="Stylesheet">
 <link href="../../../styles/main.css" rel="Stylesheet">
 <link href="../../../styles/prism.css" rel="Stylesheet">
 <link href="../../../styles/logo-styles.css" rel="Stylesheet">
-<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
-<script type="text/javascript" src="../../../scripts/clipboard.js" async="async"></script>
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/safe-local-storage_blocking.js"></script>
 <script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
 <script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
 <script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
 <script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
-<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer="defer"></script>
 </head>
 <body>
-    <div class="root">
-<nav class="navigation" id="navigation-wrapper">
-    <div class="navigation--inner">
-        <div class="navigation-title">
-            <button class="menu-toggle" id="menu-toggle" type="button">toggle menu</button>
-            <div class="library-name">
-                    <a class="library-name--link" href="../../../index.html">
-                            extensions-lib
-                    </a>
+<div class="root">
+    <header class="navigation theme-dark" id="navigation-wrapper" role="banner">
+            <a class="library-name--link" href="../../../index.html" tabindex="1">
+                    extensions-lib
+            </a>
+        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle"
+                type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+17        </div>
+        <div class="navigation-controls">
+        <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
+                <button class="platform-tag platform-selector jvm-like" data-active="" aria-pressed="true"
+                        data-filter=":library/release">release</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox"
+                        data-role="dropdown-toggle"
+                        aria-controls="platform-tags-listbox"
+                        aria-haspopup="listbox"
+                        aria-expanded="false"
+                        aria-label="Toggle source sets"
+                ></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox" aria-label="Target filter">
+                    <div class="dropdown--header"><span>Target filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close target filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":library/release"
+                                       data-filter=":library/release"/>
+                                <span class="checkbox--icon"></span>
+                                release
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
             </div>
-            <div class="library-version">
-16-rc4            </div>
-        </div>
-        <div class="filter-section" id="filter-section">
-                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":library/main">jvm</button>
-        </div>
-    </div>
-    <div class="navigation-controls">
-        <button class="navigation-controls--btn navigation-controls--theme" id="theme-toggle-button" type="button">switch theme</button>
-        <div class="navigation-controls--btn navigation-controls--search" id="searchBar" role="button">search in API</div>
-    </div>
-</nav>
-        <div id="container">
-            <div class="sidebar" id="leftColumn">
-                <div class="sidebar--inner" id="sideMenu"></div>
+        </ul>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button"
+                    type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
             </div>
-            <div id="main">
-<div class="main-content" data-page-type="classlike" id="content" pageIds="extensions-lib::eu.kanade.tachiyomi.animesource.model/AnimeFilterList///PointingToDeclaration//177865961">
+        </div>
+    </header>
+    <div id="container">
+        <nav id="leftColumn" class="sidebar" data-item-type="SECTION" data-item-config='{"defaultSize": 280, "minSize": 200, "maxSize": 400}'>
+            <a class="toc--skip-link" href="#main">Skip to content</a>
+            <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list"
+                    data-role="dropdown-listbox" aria-label="Table of contents">
+                    <div class="dropdown--header">
+                            <span>
+                                    extensions-lib
+                            </span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar--inner" id="sideMenu"></div>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </nav>
+        <div id="resizer" class="resizer" data-item-type="BAR"></div>
+        <div id="main" data-item-type="SECTION" role="main">
+<div class="main-content" data-page-type="classlike" id="content" pageIds="extensions-lib::eu.kanade.tachiyomi.animesource.model/AnimeFilterList///PointingToDeclaration//-183509009">
   <div class="breadcrumbs"><a href="../../../index.html">extensions-lib</a><span class="delimiter">/</span><a href="../index.html">eu.kanade.tachiyomi.animesource.model</a><span class="delimiter">/</span><span class="current">AnimeFilterList</span></div>
   <div class="cover ">
     <h1 class="cover"><span>Anime</span><wbr></wbr><span>Filter</span><wbr></wbr><span><span>List</span></span></h1>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/main"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="index.html">AnimeFilterList</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>list<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../-anime-filter/index.html">AnimeFilter</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span> : <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../-anime-filter/index.html">AnimeFilter</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span><span class="token operator">&gt; </span><span class="clearfix"><span class="floating-right">(<a href="https://github.com/aniyomiorg/aniyomi/tree/master/source-api/src/commonMain/kotlin/eu/kanade/tachiyomi/animesource//model/AnimeFilterList.kt#3">source</a>)</span></span></div></div></div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/release"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="index.html">AnimeFilterList</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>list<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../-anime-filter/index.html">AnimeFilter</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../-anime-filter/index.html">AnimeFilter</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span><span class="token operator">&gt; </span><span class="source-link-wrapper"><span class="source-link" data-element-type="source-link">(<a href="https://github.com/aniyomiorg/aniyomi/tree/main/source-api/src/commonMain/kotlin/eu/kanade/tachiyomi/animesource//model/AnimeFilterList.kt#3">source</a>)</span></span></div></div></div>
   </div>
   <div class="tabbedcontent">
     <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button><button class="section-tab" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION,EXTENSION_PROPERTY,EXTENSION_FUNCTION">Members &amp; Extensions</button></div>
     <div class="tabs-section-body">
       <div data-togglable="CONSTRUCTOR">
-        <h2 class="">Constructors</h2>
-        <div class="table"><a data-name="487583270%2FConstructors%2F177865961" anchor-label="AnimeFilterList" id="487583270%2FConstructors%2F177865961" data-filterable-set=":library/main"></a>
-          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":library/main" data-filterable-set=":library/main">
+        <h2 class="tableheader">Constructors</h2>
+        <div class="table"><a data-name="1648441826%2FConstructors%2F-183509009" anchor-label="AnimeFilterList" id="1648441826%2FConstructors%2F-183509009" data-filterable-set=":library/release"></a>
+          <div class="table-row table-row_content" data-togglable="CONSTRUCTOR" data-filterable-current=":library/release" data-filterable-set=":library/release">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-anime-filter-list.html"><span>Anime</span><wbr></wbr><span>Filter</span><wbr></wbr><span><span>List</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="487583270%2FConstructors%2F177865961"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1648441826%2FConstructors%2F-183509009"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/main"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">vararg </span>fs<span class="token operator">: </span><a href="../-anime-filter/index.html">AnimeFilter</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">list<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../-anime-filter/index.html">AnimeFilter</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/release"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">list<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../-anime-filter/index.html">AnimeFilter</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">vararg </span>fs<span class="token operator">: </span><a href="../-anime-filter/index.html">AnimeFilter</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div></div></div>
                 </div>
               </div>
             </div>
@@ -90,33 +132,33 @@
         </div>
       </div>
       <div data-togglable="PROPERTY">
-        <h2 class="">Properties</h2>
-        <div class="table"><a data-name="202900266%2FProperties%2F177865961" anchor-label="list" id="202900266%2FProperties%2F177865961" data-filterable-set=":library/main"></a>
-          <div class="table-row" data-filterable-current=":library/main" data-filterable-set=":library/main">
+        <h2 class="tableheader">Properties</h2>
+        <div class="table"><a data-name="202900266%2FProperties%2F-183509009" anchor-label="list" id="202900266%2FProperties%2F-183509009" data-filterable-set=":library/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":library/release" data-filterable-set=":library/release">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="list.html"><span><span>list</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="202900266%2FProperties%2F177865961"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="202900266%2FProperties%2F-183509009"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="list.html">list</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../-anime-filter/index.html">AnimeFilter</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="list.html">list</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../-anime-filter/index.html">AnimeFilter</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="844915858%2FProperties%2F177865961" anchor-label="size" id="844915858%2FProperties%2F177865961" data-filterable-set=":library/main"></a>
-          <div class="table-row" data-filterable-current=":library/main" data-filterable-set=":library/main">
+<a data-name="844915858%2FProperties%2F-183509009" anchor-label="size" id="844915858%2FProperties%2F-183509009" data-filterable-set=":library/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":library/release" data-filterable-set=":library/release">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
-                  <div><a href="index.html#844915858%2FProperties%2F177865961"><span><span>size</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="844915858%2FProperties%2F177865961"></span>
+                  <div><a href="index.html#844915858%2FProperties%2F-183509009"><span><span>size</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="844915858%2FProperties%2F-183509009"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="index.html#844915858%2FProperties%2F177865961">size</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="index.html#844915858%2FProperties%2F-183509009">size</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div></div></div>
                 </div>
               </div>
             </div>
@@ -124,453 +166,273 @@
         </div>
       </div>
       <div data-togglable="FUNCTION">
-        <h2 class="">Functions</h2>
-        <div class="table"><a data-name="812800947%2FFunctions%2F177865961" anchor-label="addFirst" id="812800947%2FFunctions%2F177865961" data-filterable-set=":library/main"></a>
-          <div class="table-row" data-filterable-current=":library/main" data-filterable-set=":library/main">
+        <h2 class="tableheader">Functions</h2>
+        <div class="table"><a data-name="765883978%2FFunctions%2F-183509009" anchor-label="contains" id="765883978%2FFunctions%2F-183509009" data-filterable-set=":library/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":library/release" data-filterable-set=":library/release">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
-                  <div><a href="index.html#812800947%2FFunctions%2F177865961"><span>add</span><wbr></wbr><span><span>First</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="812800947%2FFunctions%2F177865961"></span>
+                  <div><a href="index.html#765883978%2FFunctions%2F-183509009"><span><span>contains</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="765883978%2FFunctions%2F-183509009"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#812800947%2FFunctions%2F177865961"><span class="token function">addFirst</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p0<span class="token operator">: </span><a href="../-anime-filter/index.html">AnimeFilter</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">operator override </span><span class="token keyword">fun </span><a href="index.html#765883978%2FFunctions%2F-183509009"><span class="token function">contains</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">element<span class="token operator">: </span><a href="../-anime-filter/index.html">AnimeFilter</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="1806629439%2FFunctions%2F177865961" anchor-label="addLast" id="1806629439%2FFunctions%2F177865961" data-filterable-set=":library/main"></a>
-          <div class="table-row" data-filterable-current=":library/main" data-filterable-set=":library/main">
+<a data-name="-225903147%2FFunctions%2F-183509009" anchor-label="containsAll" id="-225903147%2FFunctions%2F-183509009" data-filterable-set=":library/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":library/release" data-filterable-set=":library/release">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
-                  <div><a href="index.html#1806629439%2FFunctions%2F177865961"><span>add</span><wbr></wbr><span><span>Last</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1806629439%2FFunctions%2F177865961"></span>
+                  <div><a href="index.html#-225903147%2FFunctions%2F-183509009"><span>contains</span><wbr></wbr><span><span>All</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-225903147%2FFunctions%2F-183509009"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#1806629439%2FFunctions%2F177865961"><span class="token function">addLast</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p0<span class="token operator">: </span><a href="../-anime-filter/index.html">AnimeFilter</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#-225903147%2FFunctions%2F-183509009"><span class="token function">containsAll</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">elements<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-collection/index.html">Collection</a><span class="token operator">&lt;</span><a href="../-anime-filter/index.html">AnimeFilter</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-1730882013%2FFunctions%2F177865961" anchor-label="contains" id="-1730882013%2FFunctions%2F177865961" data-filterable-set=":library/main"></a>
-          <div class="table-row" data-filterable-current=":library/main" data-filterable-set=":library/main">
+<a data-name="961975567%2FFunctions%2F-183509009" anchor-label="get" id="961975567%2FFunctions%2F-183509009" data-filterable-set=":library/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":library/release" data-filterable-set=":library/release">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
-                  <div><a href="index.html#-1730882013%2FFunctions%2F177865961"><span><span>contains</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1730882013%2FFunctions%2F177865961"></span>
+                  <div><a href="index.html#961975567%2FFunctions%2F-183509009"><span><span>get</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="961975567%2FFunctions%2F-183509009"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">operator override </span><span class="token keyword">fun </span><a href="index.html#-1730882013%2FFunctions%2F177865961"><span class="token function">contains</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">element<span class="token operator">: </span><a href="../-anime-filter/index.html">AnimeFilter</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">operator override </span><span class="token keyword">fun </span><a href="index.html#961975567%2FFunctions%2F-183509009"><span class="token function">get</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">index<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-anime-filter/index.html">AnimeFilter</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="217905576%2FFunctions%2F177865961" anchor-label="containsAll" id="217905576%2FFunctions%2F177865961" data-filterable-set=":library/main"></a>
-          <div class="table-row" data-filterable-current=":library/main" data-filterable-set=":library/main">
+<a data-name="-407930336%2FFunctions%2F-183509009" anchor-label="indexOf" id="-407930336%2FFunctions%2F-183509009" data-filterable-set=":library/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":library/release" data-filterable-set=":library/release">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
-                  <div><a href="index.html#217905576%2FFunctions%2F177865961"><span>contains</span><wbr></wbr><span><span>All</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="217905576%2FFunctions%2F177865961"></span>
+                  <div><a href="index.html#-407930336%2FFunctions%2F-183509009"><span>index</span><wbr></wbr><span><span>Of</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-407930336%2FFunctions%2F-183509009"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#217905576%2FFunctions%2F177865961"><span class="token function">containsAll</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">elements<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-collection/index.html">Collection</a><span class="token operator">&lt;</span><a href="../-anime-filter/index.html">AnimeFilter</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#-407930336%2FFunctions%2F-183509009"><span class="token function">indexOf</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">element<span class="token operator">: </span><a href="../-anime-filter/index.html">AnimeFilter</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="943599068%2FFunctions%2F177865961" anchor-label="forEach" id="943599068%2FFunctions%2F177865961" data-filterable-set=":library/main"></a>
-          <div class="table-row" data-filterable-current=":library/main" data-filterable-set=":library/main">
+<a data-name="-1000881820%2FFunctions%2F-183509009" anchor-label="isEmpty" id="-1000881820%2FFunctions%2F-183509009" data-filterable-set=":library/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":library/release" data-filterable-set=":library/release">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
-                  <div><a href="index.html#943599068%2FFunctions%2F177865961"><span>for</span><wbr></wbr><span><span>Each</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="943599068%2FFunctions%2F177865961"></span>
+                  <div><a href="index.html#-1000881820%2FFunctions%2F-183509009"><span>is</span><wbr></wbr><span><span>Empty</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1000881820%2FFunctions%2F-183509009"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#943599068%2FFunctions%2F177865961"><span class="token function">forEach</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p0<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/function/Consumer.html">Consumer</a><span class="token operator">&lt;</span><span class="token keyword">in </span><a href="../-anime-filter/index.html">AnimeFilter</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#-1000881820%2FFunctions%2F-183509009"><span class="token function">isEmpty</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="961975567%2FFunctions%2F177865961" anchor-label="get" id="961975567%2FFunctions%2F177865961" data-filterable-set=":library/main"></a>
-          <div class="table-row" data-filterable-current=":library/main" data-filterable-set=":library/main">
+<a data-name="-1577986619%2FFunctions%2F-183509009" anchor-label="iterator" id="-1577986619%2FFunctions%2F-183509009" data-filterable-set=":library/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":library/release" data-filterable-set=":library/release">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
-                  <div><a href="index.html#961975567%2FFunctions%2F177865961"><span><span>get</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="961975567%2FFunctions%2F177865961"></span>
+                  <div><a href="index.html#-1577986619%2FFunctions%2F-183509009"><span><span>iterator</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1577986619%2FFunctions%2F-183509009"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">operator override </span><span class="token keyword">fun </span><a href="index.html#961975567%2FFunctions%2F177865961"><span class="token function">get</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">index<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-anime-filter/index.html">AnimeFilter</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">operator override </span><span class="token keyword">fun </span><a href="index.html#-1577986619%2FFunctions%2F-183509009"><span class="token function">iterator</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-iterator/index.html">Iterator</a><span class="token operator">&lt;</span><a href="../-anime-filter/index.html">AnimeFilter</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="423156409%2FFunctions%2F177865961" anchor-label="getFirst" id="423156409%2FFunctions%2F177865961" data-filterable-set=":library/main"></a>
-          <div class="table-row" data-filterable-current=":library/main" data-filterable-set=":library/main">
+<a data-name="1327716778%2FFunctions%2F-183509009" anchor-label="lastIndexOf" id="1327716778%2FFunctions%2F-183509009" data-filterable-set=":library/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":library/release" data-filterable-set=":library/release">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
-                  <div><a href="index.html#423156409%2FFunctions%2F177865961"><span>get</span><wbr></wbr><span><span>First</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="423156409%2FFunctions%2F177865961"></span>
+                  <div><a href="index.html#1327716778%2FFunctions%2F-183509009"><span>last</span><wbr></wbr><span>Index</span><wbr></wbr><span><span>Of</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1327716778%2FFunctions%2F-183509009"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#423156409%2FFunctions%2F177865961"><span class="token function"><strike>getFirst</strike></span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-anime-filter/index.html">AnimeFilter</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#1327716778%2FFunctions%2F-183509009"><span class="token function">lastIndexOf</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">element<span class="token operator">: </span><a href="../-anime-filter/index.html">AnimeFilter</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-53199685%2FFunctions%2F177865961" anchor-label="getLast" id="-53199685%2FFunctions%2F177865961" data-filterable-set=":library/main"></a>
-          <div class="table-row" data-filterable-current=":library/main" data-filterable-set=":library/main">
+<a data-name="-1452260150%2FFunctions%2F-183509009" anchor-label="listIterator" id="-1452260150%2FFunctions%2F-183509009" data-filterable-set=":library/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":library/release" data-filterable-set=":library/release">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
-                  <div><a href="index.html#-53199685%2FFunctions%2F177865961"><span>get</span><wbr></wbr><span><span>Last</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-53199685%2FFunctions%2F177865961"></span>
+                  <div><a href="index.html#-236165689%2FFunctions%2F-183509009"><span>list</span><wbr></wbr><span><span>Iterator</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1452260150%2FFunctions%2F-183509009"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#-53199685%2FFunctions%2F177865961"><span class="token function"><strike>getLast</strike></span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-anime-filter/index.html">AnimeFilter</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#-236165689%2FFunctions%2F-183509009"><span class="token function">listIterator</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list-iterator/index.html">ListIterator</a><span class="token operator">&lt;</span><a href="../-anime-filter/index.html">AnimeFilter</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#845091493%2FFunctions%2F-183509009"><span class="token function">listIterator</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">index<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list-iterator/index.html">ListIterator</a><span class="token operator">&lt;</span><a href="../-anime-filter/index.html">AnimeFilter</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-1285180403%2FFunctions%2F177865961" anchor-label="indexOf" id="-1285180403%2FFunctions%2F177865961" data-filterable-set=":library/main"></a>
-          <div class="table-row" data-filterable-current=":library/main" data-filterable-set=":library/main">
-            <div class="main-subrow keyValue ">
-              <div class=""><span class="inline-flex">
-                  <div><a href="index.html#-1285180403%2FFunctions%2F177865961"><span>index</span><wbr></wbr><span><span>Of</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1285180403%2FFunctions%2F177865961"></span>
-                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                  </span></span></div>
-              <div>
-                <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#-1285180403%2FFunctions%2F177865961"><span class="token function">indexOf</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">element<span class="token operator">: </span><a href="../-anime-filter/index.html">AnimeFilter</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html">Int</a></div></div></div>
-                </div>
-              </div>
-            </div>
-          </div>
-<a data-name="-1000881820%2FFunctions%2F177865961" anchor-label="isEmpty" id="-1000881820%2FFunctions%2F177865961" data-filterable-set=":library/main"></a>
-          <div class="table-row" data-filterable-current=":library/main" data-filterable-set=":library/main">
-            <div class="main-subrow keyValue ">
-              <div class=""><span class="inline-flex">
-                  <div><a href="index.html#-1000881820%2FFunctions%2F177865961"><span>is</span><wbr></wbr><span><span>Empty</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1000881820%2FFunctions%2F177865961"></span>
-                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                  </span></span></div>
-              <div>
-                <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#-1000881820%2FFunctions%2F177865961"><span class="token function">isEmpty</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
-                </div>
-              </div>
-            </div>
-          </div>
-<a data-name="-1577986619%2FFunctions%2F177865961" anchor-label="iterator" id="-1577986619%2FFunctions%2F177865961" data-filterable-set=":library/main"></a>
-          <div class="table-row" data-filterable-current=":library/main" data-filterable-set=":library/main">
-            <div class="main-subrow keyValue ">
-              <div class=""><span class="inline-flex">
-                  <div><a href="index.html#-1577986619%2FFunctions%2F177865961"><span><span>iterator</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1577986619%2FFunctions%2F177865961"></span>
-                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                  </span></span></div>
-              <div>
-                <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">operator override </span><span class="token keyword">fun </span><a href="index.html#-1577986619%2FFunctions%2F177865961"><span class="token function">iterator</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-iterator/index.html">Iterator</a><span class="token operator">&lt;</span><a href="../-anime-filter/index.html">AnimeFilter</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
-                </div>
-              </div>
-            </div>
-          </div>
-<a data-name="-2089169213%2FFunctions%2F177865961" anchor-label="lastIndexOf" id="-2089169213%2FFunctions%2F177865961" data-filterable-set=":library/main"></a>
-          <div class="table-row" data-filterable-current=":library/main" data-filterable-set=":library/main">
-            <div class="main-subrow keyValue ">
-              <div class=""><span class="inline-flex">
-                  <div><a href="index.html#-2089169213%2FFunctions%2F177865961"><span>last</span><wbr></wbr><span>Index</span><wbr></wbr><span><span>Of</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2089169213%2FFunctions%2F177865961"></span>
-                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                  </span></span></div>
-              <div>
-                <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#-2089169213%2FFunctions%2F177865961"><span class="token function">lastIndexOf</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">element<span class="token operator">: </span><a href="../-anime-filter/index.html">AnimeFilter</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html">Int</a></div></div></div>
-                </div>
-              </div>
-            </div>
-          </div>
-<a data-name="-1452260150%2FFunctions%2F177865961" anchor-label="listIterator" id="-1452260150%2FFunctions%2F177865961" data-filterable-set=":library/main"></a>
-          <div class="table-row" data-filterable-current=":library/main" data-filterable-set=":library/main">
-            <div class="main-subrow keyValue ">
-              <div class=""><span class="inline-flex">
-                  <div><a href="index.html#-236165689%2FFunctions%2F177865961"><span>list</span><wbr></wbr><span><span>Iterator</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1452260150%2FFunctions%2F177865961"></span>
-                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                  </span></span></div>
-              <div>
-                <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#-236165689%2FFunctions%2F177865961"><span class="token function">listIterator</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list-iterator/index.html">ListIterator</a><span class="token operator">&lt;</span><a href="../-anime-filter/index.html">AnimeFilter</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#845091493%2FFunctions%2F177865961"><span class="token function">listIterator</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">index<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list-iterator/index.html">ListIterator</a><span class="token operator">&lt;</span><a href="../-anime-filter/index.html">AnimeFilter</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
-                </div>
-              </div>
-            </div>
-          </div>
-<a data-name="-1884682544%2FFunctions%2F177865961" anchor-label="parallelCatchingFlatMap" id="-1884682544%2FFunctions%2F177865961" data-filterable-set=":library/main"></a>
-          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":library/main" data-filterable-set=":library/main">
+<a data-name="-1884682544%2FFunctions%2F-183509009" anchor-label="parallelCatchingFlatMap" id="-1884682544%2FFunctions%2F-183509009" data-filterable-set=":library/release"></a>
+          <div class="table-row table-row_content" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":library/release" data-filterable-set=":library/release">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="../../eu.kanade.tachiyomi.util/parallel-catching-flat-map.html"><span>parallel</span><wbr></wbr><span>Catching</span><wbr></wbr><span>Flat</span><wbr></wbr><span><span>Map</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1884682544%2FFunctions%2F177865961"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1884682544%2FFunctions%2F-183509009"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/main"><div class="symbol monospace"><span class="token keyword">inline suspend </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-catching-flat-map.html">A</a><span class="token punctuation">, </span><a href="../../eu.kanade.tachiyomi.util/parallel-catching-flat-map.html">B</a><span class="token operator">&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-iterable/index.html">Iterable</a><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-catching-flat-map.html">A</a><span class="token operator">&gt;</span><span class="token punctuation">.</span><a href="../../eu.kanade.tachiyomi.util/parallel-catching-flat-map.html"><span class="token function">parallelCatchingFlatMap</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">crossinline </span>f<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span><a href="../../eu.kanade.tachiyomi.util/parallel-catching-flat-map.html">A</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-iterable/index.html">Iterable</a><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-catching-flat-map.html">B</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-catching-flat-map.html">B</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Parallel implementation of Iterable.flatMap, but running the transformation function inside a try-catch block.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/release"><div class="symbol monospace"><span class="token keyword">inline suspend </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-catching-flat-map.html">A</a><span class="token punctuation">, </span><a href="../../eu.kanade.tachiyomi.util/parallel-catching-flat-map.html">B</a><span class="token operator">&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-iterable/index.html">Iterable</a><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-catching-flat-map.html">A</a><span class="token operator">&gt;</span><span class="token punctuation">.</span><a href="../../eu.kanade.tachiyomi.util/parallel-catching-flat-map.html"><span class="token function"><strike>parallelCatchingFlatMap</strike></span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">crossinline </span>f<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span><a href="../../eu.kanade.tachiyomi.util/parallel-catching-flat-map.html">A</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-iterable/index.html">Iterable</a><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-catching-flat-map.html">B</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-catching-flat-map.html">B</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Parallel implementation of <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/index.html">Iterable.flatMap</a>, but running the transformation function inside a try-catch block.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="745983387%2FFunctions%2F177865961" anchor-label="parallelCatchingFlatMapBlocking" id="745983387%2FFunctions%2F177865961" data-filterable-set=":library/main"></a>
-          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":library/main" data-filterable-set=":library/main">
+<a data-name="745983387%2FFunctions%2F-183509009" anchor-label="parallelCatchingFlatMapBlocking" id="745983387%2FFunctions%2F-183509009" data-filterable-set=":library/release"></a>
+          <div class="table-row table-row_content" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":library/release" data-filterable-set=":library/release">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="../../eu.kanade.tachiyomi.util/parallel-catching-flat-map-blocking.html"><span>parallel</span><wbr></wbr><span>Catching</span><wbr></wbr><span>Flat</span><wbr></wbr><span>Map</span><wbr></wbr><span><span>Blocking</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="745983387%2FFunctions%2F177865961"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="745983387%2FFunctions%2F-183509009"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/main"><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-catching-flat-map-blocking.html">A</a><span class="token punctuation">, </span><a href="../../eu.kanade.tachiyomi.util/parallel-catching-flat-map-blocking.html">B</a><span class="token operator">&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-iterable/index.html">Iterable</a><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-catching-flat-map-blocking.html">A</a><span class="token operator">&gt;</span><span class="token punctuation">.</span><a href="../../eu.kanade.tachiyomi.util/parallel-catching-flat-map-blocking.html"><span class="token function">parallelCatchingFlatMapBlocking</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">crossinline </span>f<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span><a href="../../eu.kanade.tachiyomi.util/parallel-catching-flat-map-blocking.html">A</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-iterable/index.html">Iterable</a><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-catching-flat-map-blocking.html">B</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-catching-flat-map-blocking.html">B</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Thread-blocking parallel implementation of Iterable.flatMap, but running the transformation function inside a try-catch block.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/release"><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-catching-flat-map-blocking.html">A</a><span class="token punctuation">, </span><a href="../../eu.kanade.tachiyomi.util/parallel-catching-flat-map-blocking.html">B</a><span class="token operator">&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-iterable/index.html">Iterable</a><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-catching-flat-map-blocking.html">A</a><span class="token operator">&gt;</span><span class="token punctuation">.</span><a href="../../eu.kanade.tachiyomi.util/parallel-catching-flat-map-blocking.html"><span class="token function"><strike>parallelCatchingFlatMapBlocking</strike></span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">crossinline </span>f<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span><a href="../../eu.kanade.tachiyomi.util/parallel-catching-flat-map-blocking.html">A</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-iterable/index.html">Iterable</a><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-catching-flat-map-blocking.html">B</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-catching-flat-map-blocking.html">B</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Thread-blocking parallel implementation of <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/index.html">Iterable.flatMap</a>, but running the transformation function inside a try-catch block.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="810370025%2FFunctions%2F177865961" anchor-label="parallelFlatMap" id="810370025%2FFunctions%2F177865961" data-filterable-set=":library/main"></a>
-          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":library/main" data-filterable-set=":library/main">
+<a data-name="810370025%2FFunctions%2F-183509009" anchor-label="parallelFlatMap" id="810370025%2FFunctions%2F-183509009" data-filterable-set=":library/release"></a>
+          <div class="table-row table-row_content" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":library/release" data-filterable-set=":library/release">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="../../eu.kanade.tachiyomi.util/parallel-flat-map.html"><span>parallel</span><wbr></wbr><span>Flat</span><wbr></wbr><span><span>Map</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="810370025%2FFunctions%2F177865961"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="810370025%2FFunctions%2F-183509009"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/main"><div class="symbol monospace"><span class="token keyword">inline suspend </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-flat-map.html">A</a><span class="token punctuation">, </span><a href="../../eu.kanade.tachiyomi.util/parallel-flat-map.html">B</a><span class="token operator">&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-iterable/index.html">Iterable</a><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-flat-map.html">A</a><span class="token operator">&gt;</span><span class="token punctuation">.</span><a href="../../eu.kanade.tachiyomi.util/parallel-flat-map.html"><span class="token function">parallelFlatMap</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">crossinline </span>f<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span><a href="../../eu.kanade.tachiyomi.util/parallel-flat-map.html">A</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-iterable/index.html">Iterable</a><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-flat-map.html">B</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-flat-map.html">B</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Parallel implementation of Iterable.flatMap.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/release"><div class="symbol monospace"><span class="token keyword">inline suspend </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-flat-map.html">A</a><span class="token punctuation">, </span><a href="../../eu.kanade.tachiyomi.util/parallel-flat-map.html">B</a><span class="token operator">&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-iterable/index.html">Iterable</a><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-flat-map.html">A</a><span class="token operator">&gt;</span><span class="token punctuation">.</span><a href="../../eu.kanade.tachiyomi.util/parallel-flat-map.html"><span class="token function"><strike>parallelFlatMap</strike></span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">crossinline </span>f<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span><a href="../../eu.kanade.tachiyomi.util/parallel-flat-map.html">A</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-iterable/index.html">Iterable</a><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-flat-map.html">B</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-flat-map.html">B</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Parallel implementation of <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/index.html">Iterable.flatMap</a>.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="1127997876%2FFunctions%2F177865961" anchor-label="parallelFlatMapBlocking" id="1127997876%2FFunctions%2F177865961" data-filterable-set=":library/main"></a>
-          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":library/main" data-filterable-set=":library/main">
+<a data-name="1127997876%2FFunctions%2F-183509009" anchor-label="parallelFlatMapBlocking" id="1127997876%2FFunctions%2F-183509009" data-filterable-set=":library/release"></a>
+          <div class="table-row table-row_content" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":library/release" data-filterable-set=":library/release">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="../../eu.kanade.tachiyomi.util/parallel-flat-map-blocking.html"><span>parallel</span><wbr></wbr><span>Flat</span><wbr></wbr><span>Map</span><wbr></wbr><span><span>Blocking</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1127997876%2FFunctions%2F177865961"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1127997876%2FFunctions%2F-183509009"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/main"><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-flat-map-blocking.html">A</a><span class="token punctuation">, </span><a href="../../eu.kanade.tachiyomi.util/parallel-flat-map-blocking.html">B</a><span class="token operator">&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-iterable/index.html">Iterable</a><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-flat-map-blocking.html">A</a><span class="token operator">&gt;</span><span class="token punctuation">.</span><a href="../../eu.kanade.tachiyomi.util/parallel-flat-map-blocking.html"><span class="token function">parallelFlatMapBlocking</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">crossinline </span>f<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span><a href="../../eu.kanade.tachiyomi.util/parallel-flat-map-blocking.html">A</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-iterable/index.html">Iterable</a><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-flat-map-blocking.html">B</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-flat-map-blocking.html">B</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Thread-blocking parallel implementation of Iterable.flatMap.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/release"><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-flat-map-blocking.html">A</a><span class="token punctuation">, </span><a href="../../eu.kanade.tachiyomi.util/parallel-flat-map-blocking.html">B</a><span class="token operator">&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-iterable/index.html">Iterable</a><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-flat-map-blocking.html">A</a><span class="token operator">&gt;</span><span class="token punctuation">.</span><a href="../../eu.kanade.tachiyomi.util/parallel-flat-map-blocking.html"><span class="token function"><strike>parallelFlatMapBlocking</strike></span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">crossinline </span>f<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span><a href="../../eu.kanade.tachiyomi.util/parallel-flat-map-blocking.html">A</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-iterable/index.html">Iterable</a><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-flat-map-blocking.html">B</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-flat-map-blocking.html">B</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Thread-blocking parallel implementation of <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/index.html">Iterable.flatMap</a>.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-540595848%2FFunctions%2F177865961" anchor-label="parallelMap" id="-540595848%2FFunctions%2F177865961" data-filterable-set=":library/main"></a>
-          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":library/main" data-filterable-set=":library/main">
+<a data-name="-540595848%2FFunctions%2F-183509009" anchor-label="parallelMap" id="-540595848%2FFunctions%2F-183509009" data-filterable-set=":library/release"></a>
+          <div class="table-row table-row_content" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":library/release" data-filterable-set=":library/release">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="../../eu.kanade.tachiyomi.util/parallel-map.html"><span>parallel</span><wbr></wbr><span><span>Map</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-540595848%2FFunctions%2F177865961"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-540595848%2FFunctions%2F-183509009"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/main"><div class="symbol monospace"><span class="token keyword">inline suspend </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-map.html">A</a><span class="token punctuation">, </span><a href="../../eu.kanade.tachiyomi.util/parallel-map.html">B</a><span class="token operator">&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-iterable/index.html">Iterable</a><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-map.html">A</a><span class="token operator">&gt;</span><span class="token punctuation">.</span><a href="../../eu.kanade.tachiyomi.util/parallel-map.html"><span class="token function">parallelMap</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">crossinline </span>f<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span><a href="../../eu.kanade.tachiyomi.util/parallel-map.html">A</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="../../eu.kanade.tachiyomi.util/parallel-map.html">B</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-map.html">B</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Parallel implementation of Iterable.map.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/release"><div class="symbol monospace"><span class="token keyword">inline suspend </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-map.html">A</a><span class="token punctuation">, </span><a href="../../eu.kanade.tachiyomi.util/parallel-map.html">B</a><span class="token operator">&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-iterable/index.html">Iterable</a><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-map.html">A</a><span class="token operator">&gt;</span><span class="token punctuation">.</span><a href="../../eu.kanade.tachiyomi.util/parallel-map.html"><span class="token function"><strike>parallelMap</strike></span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">crossinline </span>f<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span><a href="../../eu.kanade.tachiyomi.util/parallel-map.html">A</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="../../eu.kanade.tachiyomi.util/parallel-map.html">B</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-map.html">B</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Parallel implementation of <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/index.html">Iterable.map</a>.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="655053%2FFunctions%2F177865961" anchor-label="parallelMapBlocking" id="655053%2FFunctions%2F177865961" data-filterable-set=":library/main"></a>
-          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":library/main" data-filterable-set=":library/main">
+<a data-name="655053%2FFunctions%2F-183509009" anchor-label="parallelMapBlocking" id="655053%2FFunctions%2F-183509009" data-filterable-set=":library/release"></a>
+          <div class="table-row table-row_content" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":library/release" data-filterable-set=":library/release">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="../../eu.kanade.tachiyomi.util/parallel-map-blocking.html"><span>parallel</span><wbr></wbr><span>Map</span><wbr></wbr><span><span>Blocking</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="655053%2FFunctions%2F177865961"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="655053%2FFunctions%2F-183509009"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/main"><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-map-blocking.html">A</a><span class="token punctuation">, </span><a href="../../eu.kanade.tachiyomi.util/parallel-map-blocking.html">B</a><span class="token operator">&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-iterable/index.html">Iterable</a><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-map-blocking.html">A</a><span class="token operator">&gt;</span><span class="token punctuation">.</span><a href="../../eu.kanade.tachiyomi.util/parallel-map-blocking.html"><span class="token function">parallelMapBlocking</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">crossinline </span>f<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span><a href="../../eu.kanade.tachiyomi.util/parallel-map-blocking.html">A</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="../../eu.kanade.tachiyomi.util/parallel-map-blocking.html">B</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-map-blocking.html">B</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Thread-blocking parallel implementation of Iterable.map.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/release"><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-map-blocking.html">A</a><span class="token punctuation">, </span><a href="../../eu.kanade.tachiyomi.util/parallel-map-blocking.html">B</a><span class="token operator">&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-iterable/index.html">Iterable</a><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-map-blocking.html">A</a><span class="token operator">&gt;</span><span class="token punctuation">.</span><a href="../../eu.kanade.tachiyomi.util/parallel-map-blocking.html"><span class="token function"><strike>parallelMapBlocking</strike></span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">crossinline </span>f<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span><a href="../../eu.kanade.tachiyomi.util/parallel-map-blocking.html">A</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="../../eu.kanade.tachiyomi.util/parallel-map-blocking.html">B</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-map-blocking.html">B</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Thread-blocking parallel implementation of <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/index.html">Iterable.map</a>.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="1273106469%2FFunctions%2F177865961" anchor-label="parallelMapNotNull" id="1273106469%2FFunctions%2F177865961" data-filterable-set=":library/main"></a>
-          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":library/main" data-filterable-set=":library/main">
+<a data-name="1273106469%2FFunctions%2F-183509009" anchor-label="parallelMapNotNull" id="1273106469%2FFunctions%2F-183509009" data-filterable-set=":library/release"></a>
+          <div class="table-row table-row_content" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":library/release" data-filterable-set=":library/release">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="../../eu.kanade.tachiyomi.util/parallel-map-not-null.html"><span>parallel</span><wbr></wbr><span>Map</span><wbr></wbr><span>Not</span><wbr></wbr><span><span>Null</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1273106469%2FFunctions%2F177865961"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1273106469%2FFunctions%2F-183509009"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/main"><div class="symbol monospace"><span class="token keyword">inline suspend </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-map-not-null.html">A</a><span class="token punctuation">, </span><a href="../../eu.kanade.tachiyomi.util/parallel-map-not-null.html">B</a><span class="token operator">&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-iterable/index.html">Iterable</a><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-map-not-null.html">A</a><span class="token operator">&gt;</span><span class="token punctuation">.</span><a href="../../eu.kanade.tachiyomi.util/parallel-map-not-null.html"><span class="token function">parallelMapNotNull</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">crossinline </span>f<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span><a href="../../eu.kanade.tachiyomi.util/parallel-map-not-null.html">A</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="../../eu.kanade.tachiyomi.util/parallel-map-not-null.html">B</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-map-not-null.html">B</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Parallel implementation of Iterable.mapNotNull.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/release"><div class="symbol monospace"><span class="token keyword">inline suspend </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-map-not-null.html">A</a><span class="token punctuation">, </span><a href="../../eu.kanade.tachiyomi.util/parallel-map-not-null.html">B</a><span class="token operator">&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-iterable/index.html">Iterable</a><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-map-not-null.html">A</a><span class="token operator">&gt;</span><span class="token punctuation">.</span><a href="../../eu.kanade.tachiyomi.util/parallel-map-not-null.html"><span class="token function"><strike>parallelMapNotNull</strike></span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">crossinline </span>f<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span><a href="../../eu.kanade.tachiyomi.util/parallel-map-not-null.html">A</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="../../eu.kanade.tachiyomi.util/parallel-map-not-null.html">B</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-map-not-null.html">B</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Parallel implementation of <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/index.html">Iterable.mapNotNull</a>.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-583676048%2FFunctions%2F177865961" anchor-label="parallelMapNotNullBlocking" id="-583676048%2FFunctions%2F177865961" data-filterable-set=":library/main"></a>
-          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":library/main" data-filterable-set=":library/main">
+<a data-name="-583676048%2FFunctions%2F-183509009" anchor-label="parallelMapNotNullBlocking" id="-583676048%2FFunctions%2F-183509009" data-filterable-set=":library/release"></a>
+          <div class="table-row table-row_content" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":library/release" data-filterable-set=":library/release">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="../../eu.kanade.tachiyomi.util/parallel-map-not-null-blocking.html"><span>parallel</span><wbr></wbr><span>Map</span><wbr></wbr><span>Not</span><wbr></wbr><span>Null</span><wbr></wbr><span><span>Blocking</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-583676048%2FFunctions%2F177865961"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-583676048%2FFunctions%2F-183509009"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/main"><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-map-not-null-blocking.html">A</a><span class="token punctuation">, </span><a href="../../eu.kanade.tachiyomi.util/parallel-map-not-null-blocking.html">B</a><span class="token operator">&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-iterable/index.html">Iterable</a><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-map-not-null-blocking.html">A</a><span class="token operator">&gt;</span><span class="token punctuation">.</span><a href="../../eu.kanade.tachiyomi.util/parallel-map-not-null-blocking.html"><span class="token function">parallelMapNotNullBlocking</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">crossinline </span>f<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span><a href="../../eu.kanade.tachiyomi.util/parallel-map-not-null-blocking.html">A</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="../../eu.kanade.tachiyomi.util/parallel-map-not-null-blocking.html">B</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-map-not-null-blocking.html">B</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Thread-blocking parallel implementation of Iterable.mapNotNull.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/release"><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-map-not-null-blocking.html">A</a><span class="token punctuation">, </span><a href="../../eu.kanade.tachiyomi.util/parallel-map-not-null-blocking.html">B</a><span class="token operator">&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-iterable/index.html">Iterable</a><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-map-not-null-blocking.html">A</a><span class="token operator">&gt;</span><span class="token punctuation">.</span><a href="../../eu.kanade.tachiyomi.util/parallel-map-not-null-blocking.html"><span class="token function"><strike>parallelMapNotNullBlocking</strike></span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">crossinline </span>f<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span><a href="../../eu.kanade.tachiyomi.util/parallel-map-not-null-blocking.html">A</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="../../eu.kanade.tachiyomi.util/parallel-map-not-null-blocking.html">B</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../../eu.kanade.tachiyomi.util/parallel-map-not-null-blocking.html">B</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Thread-blocking parallel implementation of <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/index.html">Iterable.mapNotNull</a>.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-1592339412%2FFunctions%2F177865961" anchor-label="parallelStream" id="-1592339412%2FFunctions%2F177865961" data-filterable-set=":library/main"></a>
-          <div class="table-row" data-filterable-current=":library/main" data-filterable-set=":library/main">
+<a data-name="423386006%2FFunctions%2F-183509009" anchor-label="subList" id="423386006%2FFunctions%2F-183509009" data-filterable-set=":library/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":library/release" data-filterable-set=":library/release">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
-                  <div><a href="index.html#-1592339412%2FFunctions%2F177865961"><span>parallel</span><wbr></wbr><span><span>Stream</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1592339412%2FFunctions%2F177865961"></span>
+                  <div><a href="index.html#423386006%2FFunctions%2F-183509009"><span>sub</span><wbr></wbr><span><span>List</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="423386006%2FFunctions%2F-183509009"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-1592339412%2FFunctions%2F177865961"><span class="token function">parallelStream</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/stream/Stream.html">Stream</a><span class="token operator">&lt;</span><a href="../-anime-filter/index.html">AnimeFilter</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#423386006%2FFunctions%2F-183509009"><span class="token function">subList</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">fromIndex<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">toIndex<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../-anime-filter/index.html">AnimeFilter</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-1089669573%2FFunctions%2F177865961" anchor-label="removeFirst" id="-1089669573%2FFunctions%2F177865961" data-filterable-set=":library/main"></a>
-          <div class="table-row" data-filterable-current=":library/main" data-filterable-set=":library/main">
-            <div class="main-subrow keyValue ">
-              <div class=""><span class="inline-flex">
-                  <div><a href="index.html#-1089669573%2FFunctions%2F177865961"><span>remove</span><wbr></wbr><span><span>First</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1089669573%2FFunctions%2F177865961"></span>
-                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                  </span></span></div>
-              <div>
-                <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#-1089669573%2FFunctions%2F177865961"><span class="token function">removeFirst</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-anime-filter/index.html">AnimeFilter</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span></div></div></div>
-                </div>
-              </div>
-            </div>
-          </div>
-<a data-name="36546809%2FFunctions%2F177865961" anchor-label="removeLast" id="36546809%2FFunctions%2F177865961" data-filterable-set=":library/main"></a>
-          <div class="table-row" data-filterable-current=":library/main" data-filterable-set=":library/main">
-            <div class="main-subrow keyValue ">
-              <div class=""><span class="inline-flex">
-                  <div><a href="index.html#36546809%2FFunctions%2F177865961"><span>remove</span><wbr></wbr><span><span>Last</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="36546809%2FFunctions%2F177865961"></span>
-                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                  </span></span></div>
-              <div>
-                <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#36546809%2FFunctions%2F177865961"><span class="token function">removeLast</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-anime-filter/index.html">AnimeFilter</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span></div></div></div>
-                </div>
-              </div>
-            </div>
-          </div>
-<a data-name="-455853327%2FFunctions%2F177865961" anchor-label="reversed" id="-455853327%2FFunctions%2F177865961" data-filterable-set=":library/main"></a>
-          <div class="table-row" data-filterable-current=":library/main" data-filterable-set=":library/main">
-            <div class="main-subrow keyValue ">
-              <div class=""><span class="inline-flex">
-                  <div><a href="index.html#-455853327%2FFunctions%2F177865961"><span><span>reversed</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-455853327%2FFunctions%2F177865961"></span>
-                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                  </span></span></div>
-              <div>
-                <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#-455853327%2FFunctions%2F177865961"><span class="token function">reversed</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-mutable-list/index.html">MutableList</a><span class="token operator">&lt;</span><a href="../-anime-filter/index.html">AnimeFilter</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
-                </div>
-              </div>
-            </div>
-          </div>
-<a data-name="703021258%2FFunctions%2F177865961" anchor-label="spliterator" id="703021258%2FFunctions%2F177865961" data-filterable-set=":library/main"></a>
-          <div class="table-row" data-filterable-current=":library/main" data-filterable-set=":library/main">
-            <div class="main-subrow keyValue ">
-              <div class=""><span class="inline-flex">
-                  <div><a href="index.html#703021258%2FFunctions%2F177865961"><span><span>spliterator</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="703021258%2FFunctions%2F177865961"></span>
-                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                  </span></span></div>
-              <div>
-                <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#703021258%2FFunctions%2F177865961"><span class="token function">spliterator</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/Spliterator.html">Spliterator</a><span class="token operator">&lt;</span><a href="../-anime-filter/index.html">AnimeFilter</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
-                </div>
-              </div>
-            </div>
-          </div>
-<a data-name="135225651%2FFunctions%2F177865961" anchor-label="stream" id="135225651%2FFunctions%2F177865961" data-filterable-set=":library/main"></a>
-          <div class="table-row" data-filterable-current=":library/main" data-filterable-set=":library/main">
-            <div class="main-subrow keyValue ">
-              <div class=""><span class="inline-flex">
-                  <div><a href="index.html#135225651%2FFunctions%2F177865961"><span><span>stream</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="135225651%2FFunctions%2F177865961"></span>
-                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                  </span></span></div>
-              <div>
-                <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#135225651%2FFunctions%2F177865961"><span class="token function">stream</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/stream/Stream.html">Stream</a><span class="token operator">&lt;</span><a href="../-anime-filter/index.html">AnimeFilter</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
-                </div>
-              </div>
-            </div>
-          </div>
-<a data-name="423386006%2FFunctions%2F177865961" anchor-label="subList" id="423386006%2FFunctions%2F177865961" data-filterable-set=":library/main"></a>
-          <div class="table-row" data-filterable-current=":library/main" data-filterable-set=":library/main">
-            <div class="main-subrow keyValue ">
-              <div class=""><span class="inline-flex">
-                  <div><a href="index.html#423386006%2FFunctions%2F177865961"><span>sub</span><wbr></wbr><span><span>List</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="423386006%2FFunctions%2F177865961"></span>
-                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                  </span></span></div>
-              <div>
-                <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#423386006%2FFunctions%2F177865961"><span class="token function">subList</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">fromIndex<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">toIndex<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../-anime-filter/index.html">AnimeFilter</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
-                </div>
-              </div>
-            </div>
-          </div>
-<a data-name="-1215154575%2FFunctions%2F177865961" anchor-label="toArray" id="-1215154575%2FFunctions%2F177865961" data-filterable-set=":library/main"></a>
-          <div class="table-row" data-filterable-current=":library/main" data-filterable-set=":library/main">
-            <div class="main-subrow keyValue ">
-              <div class=""><span class="inline-flex">
-                  <div><a href="index.html#-1215154575%2FFunctions%2F177865961"><span>to</span><wbr></wbr><span><span>Array</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1215154575%2FFunctions%2F177865961"></span>
-                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                  </span></span></div>
-              <div>
-                <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="index.html#-1215154575%2FFunctions%2F177865961">T</a><span class="token operator"> : </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt; </span><a href="index.html#-1215154575%2FFunctions%2F177865961"><span class="token function"><strike>toArray</strike></span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p0<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/function/IntFunction.html">IntFunction</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-array/index.html">Array</a><span class="token operator">&lt;</span><a href="index.html#-1215154575%2FFunctions%2F177865961">T</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-array/index.html">Array</a><span class="token operator">&lt;</span><a href="index.html#-1215154575%2FFunctions%2F177865961">T</a><span class="token operator">&gt;</span></div></div></div>
-                </div>
-              </div>
-            </div>
-          </div>
-<a data-name="1550677259%2FFunctions%2F177865961" anchor-label="toHosterList" id="1550677259%2FFunctions%2F177865961" data-filterable-set=":library/main"></a>
-          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":library/main" data-filterable-set=":library/main">
+<a data-name="1550677259%2FFunctions%2F-183509009" anchor-label="toHosterList" id="1550677259%2FFunctions%2F-183509009" data-filterable-set=":library/release"></a>
+          <div class="table-row table-row_content" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":library/release" data-filterable-set=":library/release">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="../-hoster/-companion/to-hoster-list.html"><span>to</span><wbr></wbr><span>Hoster</span><wbr></wbr><span><span>List</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1550677259%2FFunctions%2F177865961"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1550677259%2FFunctions%2F-183509009"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../-video/index.html">Video</a><span class="token operator">&gt;</span><span class="token punctuation">.</span><a href="../-hoster/-companion/to-hoster-list.html"><span class="token function">toHosterList</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../-hoster/index.html">Hoster</a><span class="token operator">&gt;</span></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../-video/index.html">Video</a><span class="token operator">&gt;</span><span class="token punctuation">.</span><a href="../-hoster/-companion/to-hoster-list.html"><span class="token function">toHosterList</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../-hoster/index.html">Hoster</a><span class="token operator">&gt;</span></div></div></div>
                 </div>
               </div>
             </div>
@@ -580,13 +442,22 @@
     </div>
   </div>
 </div>
-      <div class="footer">
-        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2026 Copyright</span><span
-                class="pull-right"><span>Generated by </span><a
-                href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
-      </div>
+    <div class="footer">
+        <div class="footer--container">
+            <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+            <div class="footer--content">
+                <div>
+                    <span>Generated by </span>
+                    <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                        Dokka
+                    </a>
+                    <div>© 2026 Copyright</div>
+                </div>
             </div>
         </div>
     </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
